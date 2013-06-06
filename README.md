@@ -16,17 +16,32 @@ Running tests is split into 5 distinct responsibilities:
 
 ### Defining tests
 
-The SPEC:
+Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document.
 
-A test is any function anywhere in your project whose metadata contains `^:test`. (Does it go without saying that dependencies are ignored and only your namespaces are searched?)
+Example:
+
+```clojure
+(defn ^:test some-test []
+  ...)
+```
 
 A test function may also have the metadata `:test-name`, a short (1-line) string representing what this test does.
+
+Example:
+
+```clojure
+(defn ^:test ^{:test-name "makes sure the system ain't totally hosed"}
+  some-test []
+  ...)
+```
 
 There are some helper functions for defining them. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
 TODO: perhaps add more helper functions in `test2.core` to define tests.
 
 ### Assertions
+
+Inside a test-fn, you
 
 ### Finding tests
 
