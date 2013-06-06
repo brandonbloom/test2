@@ -16,18 +16,14 @@ Running tests is split into 5 distinct responsibilities:
 
 ### Defining tests
 
-Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document.
-
-Example:
+Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document. Example:
 
 ```clojure
 (defn ^:test some-test []
   ...)
 ```
 
-A test function may also have the metadata `:test-name`, a short (1-line) string representing what this test does.
-
-Example:
+A test function may also have the metadata `:test-name`, a short (1-line) string representing what this test does. Example:
 
 ```clojure
 (defn ^:test ^{:test-name "makes sure the system isn't totally hosed"}
