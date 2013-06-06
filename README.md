@@ -37,7 +37,21 @@ TODO: perhaps add more helper functions in `test2.core` to define tests.
 
 ### Assertions
 
-Inside a test-fn, you
+While a test is being run, it has access to a variable `*test-results*`. It's a seq, and every assertion should conj a test-result onto it.
+
+A test-result is a Clojure map with these keys and values:
+
+* `:status` - either `:pass` `:fail` or `:error`
+* `:description` - an optional string if the user provided one for this individual assertion
+* `:failure-report` - a Map with the following keys:
+  * `:result` - a plain Clojure value, the result of the test being run
+  * `:fn` - a raw form of the function that was used in the test
+  * `:args` - seq of the post-eval'd arg-values passed to :fn
+  * `:raw-args` - seq of the pre-eval'd arg-forms passed to :fn
+
+
+
+
 
 ### Finding tests
 
