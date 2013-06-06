@@ -30,7 +30,7 @@ A test function may also have the metadata `:test-name`, a short (1-line) string
 Example:
 
 ```clojure
-(defn ^:test ^{:test-name "makes sure the system ain't totally hosed"}
+(defn ^:test ^{:test-name "makes sure the system isn't totally hosed"}
   some-test []
   ...)
 ```
