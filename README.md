@@ -1,4 +1,1 @@
-test2
-=====
-
-replacement for clojure.test
+Check the wiki.
