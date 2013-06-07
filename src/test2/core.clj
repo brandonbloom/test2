@@ -24,14 +24,24 @@
   ([]
      (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
 
-(defn run-all-tests [& {:keys [runner reporter]}]
+(defn run-all-tests
+  "Runs all tests in current project.
+
+  Both runner and reporter are fns conforming to SPEC."
+  [& {:keys [runner reporter]}]
   (run-tests runner reporter (find-test-fns)))
 
-(defn run-ns-tests [namespaces & {:keys [runner reporter]}]
+(defn run-ns-tests
+  "Runs all tests in the given namespaces.
+
+  Both runner and reporter are fns conforming to SPEC."
+  [namespaces & {:keys [runner reporter]}]
   (run-tests runner reporter (find-test-fns namespaces)))
 
 (defn run-matching-tests
-  "Runs only tests whose metadata passes (f metadata)"
+  "Runs all tests in project whose metadata passes (f metadata).
+
+  Both runner and reporter are fns conforming to SPEC."
   [f & {:keys [runner reporter]}]
   (run-tests runner
              reporter
