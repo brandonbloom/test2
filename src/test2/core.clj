@@ -32,6 +32,7 @@
 
 (defn run-ns-tests
   "Runs all tests in the given namespaces.
+  Namespaces are symbols.
   Both runner and reporter are fns conforming to SPEC."
   [namespaces & {:keys [runner reporter]}]
   (run-tests runner reporter (find-test-fns namespaces)))
