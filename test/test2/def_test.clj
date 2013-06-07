@@ -1,6 +1,6 @@
-(ns test2.expect-test
+(ns test2.def-test
   (:require [clojure.test :refer :all]
-            [test2.expect :as p]))
+            [test2.def :as p]))
 
 (p/deftest fake-deftest-1
   (+ 1 2))
