@@ -18,7 +18,11 @@ Testing is broken down into the following responsibilities:
 ### Definer
 
 Definers are just helpers to create test-fns. They're optional since
-it's pretty easy to make a test-fn with (defn ^:test some-test [] ...)
+it's pretty easy to make a test-fn like this:
+
+```clojure
+(defn ^:test some-test [] ...)
+```
 
 
 ### Asserters
