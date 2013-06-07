@@ -14,3 +14,10 @@
   (dosync
    (alter *assertions-results*
           conj assertion-result)))
+
+(defn file-and-line
+  "Returns {:file, :line}.
+  Tip: if you don't have an exception, create one."
+  [exception depth]
+  (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
+    {:file (.getFileName s) :line (.getLineNumber s)}))
