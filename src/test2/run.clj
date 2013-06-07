@@ -3,13 +3,6 @@
             [test2.default.runner :refer [default-runner]]
             [test2.default.reporter :refer [default-reporter]]))
 
-(defn- run-tests [runner reporter test-fns]
-  (let [runner (or runner (default-runner))
-        reporter (or reporter (default-reporter))]
-    (-> test-fns
-        (runner)
-        (reporter))))
-
 (defn- test-fns-in-ns
   "Given a ns-symbol, return a seq of test-fns."
   [ns]
@@ -27,35 +20,13 @@
   ([]
      (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
 
-(defn run-all-tests
-  "Runs all tests in current project.
-  Both runner and reporter are fns conforming to SPEC."
-  [& {:keys [runner reporter]}]
-  (run-tests runner reporter (find-test-fns)))
-
-(defn run-ns-tests
-  "Runs all tests in the given namespaces.
-  Namespaces are symbols.
-  Both runner and reporter are fns conforming to SPEC."
-  [namespaces & {:keys [runner reporter]}]
-  (run-tests runner reporter (find-test-fns namespaces)))
-
-(defn run-matching-tests
-  "Runs all tests in project whose metadata passes (f metadata).
-  Both runner and reporter are fns conforming to SPEC."
-  [f & {:keys [runner reporter]}]
-  (run-tests runner
-             reporter
-             (filter (comp f meta)
-                     (find-test-fns))))
-
-(defn NEW--run-tests
+(defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
 
-   If namespaces (syms) is given, find tests only in these. Otherwise,
-   look in all namespaces in project.
+  If namespaces (syms) is given, only find tests in them. Otherwise,
+  find tests in all namespaces in current project.
 
-   If matcher is given, only run tests passing (matcher test-metadata)"
+  If matcher is given, only run tests passing (matcher test-metadata)"
   [& {:keys [runner reporter namespaces matcher]}]
   (let [runner (or runner (default-runner))
         reporter (or reporter (default-reporter))
