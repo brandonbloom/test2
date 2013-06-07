@@ -27,8 +27,8 @@ it's pretty easy to make a test-fn like this:
 
 ### Asserters
 
-During execution of a test-fn, `*test-results*` is a ref to a
-seq. Asserters are helper functions that should take some assertion,
+During execution of a test-fn, `*assertion-results*` is a ref to a
+vec. Asserters are helper functions that should take some assertion,
 evaluate it, and conj an assertion-result onto it.
 
 Note: if an unexpected error occurred (not specified by the
