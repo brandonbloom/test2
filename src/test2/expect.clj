@@ -7,7 +7,7 @@
 
   )
 
-(defn- file-and-line ;; TODO: move this somewhere else, for everyone to use
+(defn file-and-line ;; TODO: move this somewhere else, for everyone to use
   [exception depth]
   (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
     {:file (.getFileName s) :line (.getLineNumber s)}))
@@ -15,22 +15,19 @@
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
-  (let [file (:file (file-and-line (new java.lang.Throwable) 0))
-        line (:line (meta &form))]
-    `(let [always# {:file ~file
-                    :line ~line}
-           args# ~args
+  (let []
+    `(let [file-pos# (file-and-line (new java.lang.Throwable) 0)
+           args# [~@args]
            result# (apply ~f args#)]
-       ;; (if result#
-       ;;   (add-to-report (merge always#
-       ;;                         {:status :pass}))
-       ;;   (add-to-report (merge always#
-       ;;                         {:status :fail
-       ;;                          :failure-details {:result result#
-       ;;                                            :fn '~f
-       ;;                                            :raw-args '~args
-       ;;                                            :args args#}})))
-       )))
+       (if result#
+         (add-to-report (merge file-pos#
+                               {:status :pass}))
+         (add-to-report (merge file-pos#
+                               {:status :fail
+                                :failure-details {:result result#
+                                                  :fn '~f
+                                                  :raw-args '~args
+                                                  :args args#}}))))))
 
 (def ^{:doc "Nicer way of saying identity"}
   truthy? identity)
