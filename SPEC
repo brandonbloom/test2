@@ -34,16 +34,21 @@ assertion), the assertion-result's :status should be :error.
 
 == Runner
 
-A runner is a function that takes a seq of test-fns and returns a seq
-of test-results.
+Runners are functions that take a seq of test-fns and return a seq of
+test-results.
 
-(TODO: should the return-value be a lazy-seq? That would make
-command-line reporters report sooner. But should it be in the spec?)
+This is what you'd write if you want to make a lib that runs test
+concurrently, or watches for changes and re-runs tests as you save
+your files.
 
-Runners are responsible for filtering tests and deciding which ones to run.
 
-A runner is responsible for filtering tests and running them, which
-means transl them into test-results.
+== Reporter
+
+Reporter are functions that take a seq of test-results and do
+something special with them.
+
+This is what you'd write if you want to turn a test suite's results
+into HTML, or just print dots, or do something fancy like difftest.
 
 
 
