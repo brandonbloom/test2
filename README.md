@@ -10,15 +10,20 @@ Coming from clojure.test? Midje? Speclj. [Read here](#coming-from-other-libs) to
 
 To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report. (Depending on the test-reporter you use, you may want to keep this short, like only one line).
 
+```clojure
+(defn ^:test some-test []
+  ...)
+```
+
 There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
-TODO: perhaps add more helper functions in `test2.core` to define tests.
+**TODO:** perhaps add more helper functions in `test2.core` to define tests.
 
 ### Making assertions inside tests
 
 There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
 
-TODO: Add more! Especially if coming from Speclj or Midje.
+**TODO:** Add more! Especially if coming from Speclj or Midje.
 
 ### Running tests
 
@@ -47,11 +52,6 @@ Running tests is split into 5 distinct responsibilities:
 ### Defining tests
 
 Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document. Example:
-
-```clojure
-(defn ^:test some-test []
-  ...)
-```
 
 If a test-fn has a docstring, that will be considered its "description" for the reporter.
 
