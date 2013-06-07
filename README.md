@@ -1,6 +1,6 @@
 # test2
 
-Test2 is a modular testing lib for Clojure, intended as the successor of clojure.test, having the blessing of the original author.
+Test2 is a modular testing lib for Clojure.
 
 The major feature is its [SPEC](SPEC.md) (like ring-clojure), allowing different parts to be changed out for alternatives without having to switch to another lib entirely.
 
