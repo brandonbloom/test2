@@ -6,16 +6,20 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 ## Usage
 
-### Writing Tests
-
-To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report.
+### Writing tests
 
 ```clojure
-(defn ^:test some-test []
-  ...)
+(defn ^:test user-creation
+  "Creating users adds them, but they're disable by default." []
+  (expect empty? (all-users))
+  (create-user "bob")
+  (expect 1 (count (all-users)))
+  (expect truthy? (:disabled (first (all-users))))
 ```
 
-**TODO:** Make some primary helper functions in `test2.core` to define tests?
+Any function in your project with the `:test` key on its metadata is a valid test. If they have a docstring, that will be used in the report.
+
+**TODO:** Make `test2.core/deftest` as a shortcut for `defn ^:test`
 
 There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
@@ -29,7 +33,6 @@ There are some helper functions for assertions. Look at `test2.transition/is` an
 
 ```bash
 lein test2
-lein test2 -suite :suite-name
 ```
 
 Or if you want to run it from the REPL:
@@ -50,7 +53,13 @@ Put this in your `project.clj` file:
         :reporter fancy-reporter.core/some-reporter-fn}
 ```
 
-### Suites
+### Defining and runnign suites
+
+You can do:
+
+```bash
+lein test2 -suite :suite-name
+```
 
 If you put this in `test/test2_config.clj`:
 
