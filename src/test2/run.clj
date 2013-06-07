@@ -43,5 +43,5 @@
   "Entry point for running via command line."
   [& {:strs [-runner -reporter -matcher]}]
   (run-tests :runner (if -runner (-> -runner symbol resolve))
-             :reporter (if -runner (-> -reporter symbol resolve))
+             :reporter (if -reporter (-> -reporter symbol resolve))
              :matcher (if -matcher (load-string -matcher))))
