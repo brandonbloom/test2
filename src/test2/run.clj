@@ -1,7 +1,7 @@
-(ns test2.core
+(ns test2.run
   (:require [bultitude.core :as b]
-            [test2.runner :refer [default-runner]]
-            [test2.reporter :refer [default-reporter]]))
+            [test2.default.runner :refer [default-runner]]
+            [test2.default.reporter :refer [default-reporter]]))
 
 (defn- run-tests [runner reporter test-fns]
   (let [runner (or runner (default-runner))
