@@ -7,14 +7,19 @@
   ;; uhh..
   )
 
-;; (defn- file-and-line ;; TODO: move this somewhere else, for everyone to use
-;;   [exception depth]
-;;   (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
-;;     {:file (.getFileName s) :line (.getLineNumber s)}))
+(defn- file-and-line ;; TODO: move this somewhere else, for everyone to use
+  [exception depth]
+  (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
+    {:file (.getFileName s) :line (.getLineNumber s)}))
 
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
+  (prn (file-and-line (new java.lang.Throwable) 0))
+  (prn (file-and-line (new java.lang.Throwable) 1))
+  (prn (file-and-line (new java.lang.Throwable) 2))
+  (prn (file-and-line (new java.lang.Throwable) 3))
+  (prn (meta &form))
 
   ;; `(prn ~(file-and-line (new java.lang.Throwable) 1))
   ;; (let [result `(~f ~@args)]
