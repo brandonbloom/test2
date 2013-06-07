@@ -10,10 +10,12 @@
   (+ 1 2))
 
 (deftest testing-deftest
+  (is (:test (meta #'fake-deftest-1)))
   (is (= 'fake-deftest-1 (:name (meta #'fake-deftest-1))))
   (is (= nil (:doc (meta #'fake-deftest-1))))
   (is (= 3 (fake-deftest-1)))
 
+  (is (:test (meta #'fake-deftest-2)))
   (is (= 'fake-deftest-2 (:name (meta #'fake-deftest-2))))
   (is (= "foo" (:doc (meta #'fake-deftest-2))))
   (is (= 3 (fake-deftest-2))))
@@ -25,6 +27,7 @@
   (+ 1 2))
 
 (deftest testing-defspec
+  (is (:test (meta #'really-cool-test)))
   (is (= 'really-cool-test (:name (meta #'really-cool-test))))
   (is (= "really cool test" (:doc (meta #'really-cool-test))))
   (is (= 3 (really-cool-test)))

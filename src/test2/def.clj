@@ -9,7 +9,7 @@
   (let [[docstring body] (if (string? (first body))
                            [(first body) (rest body)]
                            [nil body])]
-    `(defn ~(with-meta fn-name {:doc docstring}) []
+    `(defn ~(with-meta fn-name {:test true :doc docstring}) []
        ~@body)))
 
 (defmacro defspec
@@ -20,5 +20,5 @@
                     (s/replace " " "-")
                     (s/replace #"[^a-z-]" "")
                     (symbol))]
-    `(defn ~(with-meta fn-name {:doc docstring}) []
+    `(defn ~(with-meta fn-name {:test true :doc docstring}) []
        ~@body)))
