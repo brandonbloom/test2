@@ -30,7 +30,7 @@ Copy/paste as needed into your project.clj:
 
 ## Usage
 
-Define tests like this:
+Define some tests:
 
 ```clojure
 (use 'test2.core)
