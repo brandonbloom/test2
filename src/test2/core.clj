@@ -15,8 +15,11 @@
 
 ;; the following are only needed for the high-level convenience fns
 
+(defn- current-project-name []
+  "test2")
+
 (defn- all-namespaces-in-project []
-  )
+  (b/namespaces-on-classpath :prefix (current-project-name)))
 
 (defn- find-test-fns
   "Returns seq of test-fns within your project."
