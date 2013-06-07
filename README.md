@@ -60,21 +60,25 @@ Your `project.clj` file can have a `:test2` key to a map of options. Currently i
 
 ### Test suites
 
-The `:test2` map can also take a `:suites` key. Its value is a map of names to functions. The function is called with each test-function's metadata, and only matching tests are run.
-
-For example:
+`some_test.clj`:
 
 ```clojure
 (defn ^:test ^:integration my-test [] ...)
 ```
 
+`project.clj`:
+
 ```clojure
 :test2 {:suites {:ci :integration}}
 ```
 
+Then:
+
 ```bash
 $ lein test2 :ci
 ```
+
+The `:test2` map can also take a `:suites` key. Its value is a map of names to functions. The function is called with each test-function's metadata, and only matching tests are run.
 
 ## Coming from other libs
 
