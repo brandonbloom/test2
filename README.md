@@ -29,7 +29,7 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
   (expect truthy? (:disabled (first (all-users)))))
 ```
 
-Read more about [Defining Tests](wiki/Defining-Tests).
+Read more about [Defining Tests](../../wiki/Defining-Tests).
 
 
 
