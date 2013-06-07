@@ -11,15 +11,15 @@
   (let [result (run-test-fn #'real-test-1)]
     (is (= {:test #'real-test-1
             :results [{:status :pass
-                       :description nil}
+                       :file "assert_test.clj"
+                       :line 7}
                       {:status :fail
-                       :description nil
-                       :failure-report {:file "assert_test.clj"
-                                        :line 8
-                                        :result false
-                                        :fn 'empty?
-                                        :args [1 2 3]
-                                        :raw-args '[1 2 (+ 1 2)]}}]}
+                       :file "assert_test.clj"
+                       :line 8
+                       :failure-details {:result false
+                                         :fn 'empty?
+                                         :args [[1 2 3]]
+                                         :raw-args '[[1 2 (+ 1 2)]]}}]}
            result))))
 
 (defn test-ns-hook []

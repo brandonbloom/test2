@@ -17,7 +17,7 @@
                                {:status :fail
                                 :failure-details {:result result#
                                                   :fn '~f
-                                                  :raw-args '~@args
+                                                  :raw-args (vec '~args)
                                                   :args args#}}))))))
 
 (def ^{:doc "Nicer way of saying identity"}
