@@ -21,3 +21,14 @@
   [exception depth]
   (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
     {:file (.getFileName s) :line (.getLineNumber s)}))
+
+(defmacro with-exception-reporter
+  "Reports any unexpected exceptions that occur within body.
+  Useful when writing asserters."
+  [& body]
+  `(try
+     ~@body
+     (catch Exception e#
+       (add-to-report (merge (file-and-line e# 2)
+                             {:status :error
+                              :exception e#})))))
