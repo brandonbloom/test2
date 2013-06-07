@@ -1,5 +1,5 @@
 (ns test2.api.runners
-  (:require [test2.api.assertions :refer [*assertions-results*]]))
+  (:require [test2.api.asserters :refer [*assertions-results*]]))
 
 (defn run-test-fn
   "Turns a test-fn into a test-result."

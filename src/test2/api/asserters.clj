@@ -1,6 +1,12 @@
-(ns test2.api.assertions)
+(ns test2.api.asserters
+  "")
 
-(def ^:dynamic *assertions-results*)
+(def ^:dynamic *assertions-results*
+  "A ref to a vec, to be mutated during a test.
+  Conj an assertion-result, according to the SPEC.
+
+  NOTE: Prefer to use the convenience functions instead."
+  nil)
 
 (defn report-error
   "Creates an assertion-result appropriate for unexpected errors.

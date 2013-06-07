@@ -1,6 +1,6 @@
 (ns test2.expect
   (:require [clojure.string :as s]
-            [test2.api.assertions :refer [report-error report-pass report-fail]]))
+            [test2.api.asserters :refer [report-error report-pass report-fail]]))
 
 (defn -expect [f args results])
 
