@@ -31,42 +31,21 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 Read more about [Defining Tests](../../wiki/Defining-Tests).
 
-
-
-Any function in your project with the `:test` key on its metadata is a valid test. If they have a docstring, that will be used in the report.
-
-As a shortcut, you can use `test2.core/deftest` to omit the params-list and the metadata:
-
-```clojure
-(use 'test2.core)
-
-(deftest user-creation
-  "Creating users adds them to the list, but they're disable by default."
-  (expect empty? (all-users))
-  ...)
-```
-
-If you're coming from clojure.test, you can use `deftest`, `use-fixtures`, and `is`, in `test2.transition.test`.
-
-**TODO**: Make some assertion functions to help transition from Midje or Speclj maybe?
-
 ### Running tests
 
 ```bash
 lein test2
 ```
 
-Or if you want to run it from the REPL:
+Or:
 
 ```clojure
 (use 'test2.core)
 
-;; each of these functions take :reporter and :runner keys, as fns.
-
 (run-all-tests)
 (run-ns-tests 'foo.test.core 'foo.test.other)
-(run-matching-tests :db) ;; runs only tests which pass (f test-vars-metadata)
-(run-suite-tests :db) ;; see Suites section
+(run-matching-tests :db)
+(run-suite-tests :integration)
 ```
 
 ### Using different assertion functions
