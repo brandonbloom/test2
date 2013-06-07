@@ -2,10 +2,11 @@
 
 Test2 is a modular testing lib for Clojure.
 
-It has a ring-like [SPEC](SPEC.md), so that different parts can be
-changed out for alternatives. For example, if you want a different
-reporter function, you can write one or use another reporter lib that
-conforms to this spec.
+It has a ring-like [SPEC](SPEC.md), so that different parts can be changed out for alternatives.
+
+Specifically, this lib splits tests into: test definers, assertion functions, test runners, and test-result reporters.
+
+For example, if you want a different reporter function, you can write one, or use a third-party reporter lib, as long as it conforms to this spec.
 
 Coming from clojure.test? Midje? Speclj? [Read here](#benefits-over-other-libs) to see how test2 can help you.
 
