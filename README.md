@@ -56,46 +56,12 @@ $ lein test2
 
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
 
+You can also run [Test Suites](../../wiki/Home#test-suites), or groups of functions matching a given function.
+
 ### Benefits over other libs
 
 
 
-
-### Swapping stuff out
-
-Your `project.clj` file can have a `:test2` key to a map of options.
-
-Currently it takes `:runner` and `:reporter` which are symbols pointing to functions which conform to the [SPEC](SPEC.md).
-
-```clojure
-:test2 {:runner test2.runner/randomized-runner}
-```
-
-### Test suites
-
-The `:test2` map can also take a `:suites` key. Its value is a map of names to functions. The function is called with each test-function's metadata, and only matching tests are run.
-
-`some_test.clj`:
-
-```clojure
-(defn ^:test ^:integration my-test [] ...)
-```
-
-`project.clj`:
-
-```clojure
-:test2 {:suites {:ci :integration}}
-```
-
-Then:
-
-```bash
-$ lein test2 :ci
-```
-
-## Coming from other libs
-
-Gotta do this part later.
 
 ## License
 
