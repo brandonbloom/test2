@@ -9,11 +9,13 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 ### Writing tests
 
 ```clojure
+(use 'test2.core)
+
 (defn ^:test user-creation
   "Creating users adds them, but they're disable by default." []
   (expect empty? (all-users))
   (create-user "bob")
-  (expect 1 (count (all-users)))
+  (expect = 1 (count (all-users)))
   (expect truthy? (:disabled (first (all-users)))))
 ```
 
