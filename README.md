@@ -11,8 +11,8 @@ Coming from clojure.test, midje, or speclj? Read on about the [benefits of using
 Copy/paste as needed into your project.clj:
 
 ```clojure
-[test2 "1.0.0"]              ;; in dependencies
-[lein-difftest "2.0.0"]      ;; in plugins
+[test2 "1.0.0"]             ;; in dependencies
+[lein-test2 "1.0.0"]        ;; in plugins
 ```
 
 ## Documentation
