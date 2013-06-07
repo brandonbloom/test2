@@ -53,9 +53,9 @@ Or, in Clojure:
 ```clojure
 (use 'test2.core)
 
-(run-all-tests)
-(run-ns-tests ['foo.test.core 'foo.test.other])
-(run-matching-tests :migration)
+(run-tests) ;; runs all in project
+(run-tests :namespaces ['foo.test.core 'foo.test.other])
+(run-tests :matching :migration) ;; read more about test-suites below
 ```
 
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
