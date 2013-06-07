@@ -16,8 +16,8 @@
 ;; the following are only needed for the high-level convenience fns
 
 (defn- test-fns-in-ns [ns]
-  (->> ns
-       (require)
+  (require ns)
+  (->> 'test2.core-test
        (ns-publics)
        (vals)
        (filter (comp :test meta))))
