@@ -1,24 +1,13 @@
 (ns test2.core
-  (:require [bultitude.core :as b]))
-
-;; the following are only needed for run-tests
-
-(defn- get-reporter
-  "Returns a reporter-fn, using the defualt one if none specified."
-  []
-  )
-
-(defn- get-runner
-  "Returns a runner-fn, using the defualt one if none specified."
-  []
-  )
-
+  (:require [bultitude.core :as b]
+            [test2.runner :refer [default-runner]]
+            [test2.reporter :refer [default-reporter]]))
 
 ;; this does the main work
 
 (defn- run-tests [runner reporter test-fns]
-  (let [runner (or runner (get-runner))
-        reporter (or reporter (get-reporter))]
+  (let [runner (or runner (default-runner))
+        reporter (or reporter (default-reporter))]
     (-> test-fns
         (runner)
         (reporter))))
