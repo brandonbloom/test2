@@ -29,8 +29,8 @@
 
   With :matcher, only run test-fns where (matcher (meta test-fn))"
   [& {:keys [runner reporter namespaces matcher]}]
-  (let [runner (or runner (default-runner))
-        reporter (or reporter (default-reporter))
+  (let [runner (or runner default-runner)
+        reporter (or reporter default-reporter)
         test-fns (find-test-fns namespaces)
         test-fns (if matcher
                    (filter (comp matcher meta) test-fns)
