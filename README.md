@@ -11,8 +11,11 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 ## Install
 
+Copy/paste as needed into your project.clj:
+
 ```clojure
-[test2 "1.0.0"]
+:dependencies [[test2 "1.0.0"]]
+:plugins      [[lein-difftest "2.0.0"]]
 ```
 
 ## Example
