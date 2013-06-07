@@ -18,7 +18,9 @@ Copy/paste as needed into your project.clj:
 [lein-difftest "2.0.0"] ;; in :plugins
 ```
 
-## Example
+## Usage
+
+### Example tests
 
 ```clojure
 (use 'test2.core)
@@ -47,30 +49,32 @@ $ lein test2
 (run-matching-tests :migration)
 ```
 
-### Using different runners or reporters
+### Swapping stuff out
 
-Put this in your `project.clj` file:
+Your `project.clj` file can have a `:test2` key to a map of options. Currently it takes `:runner` and `:reporter` which are symbols pointing to functions which conform to the [SPEC](SPEC.md).
 
 ```clojure
 :test2 {:runner fancy-runner.core/some-runner-fn
         :reporter fancy-reporter.core/some-reporter-fn}
 ```
 
-### Defining and runnign suites
+### Test suites
 
-If you put this in `project.clj`:
+The `:test2` map can also take a `:suites` key. Its value is a map of names to functions. The function is called with each test-function's metadata, and only matching tests are run.
+
+For example:
 
 ```clojure
-:test2 {:suites {:database :db}}
+(defn ^:test ^:integration my-test [] ...)
 ```
 
-Then you can do:
+```clojure
+:test2 {:suites {:ci :integration}}
+```
 
 ```bash
-lein test2 :suite :database
+$ lein test2 :ci
 ```
-
-<!-- Each suite's val is a fn. For each test function, its var is passed, and if its run, then its run. -->
 
 ## Coming from other libs
 
