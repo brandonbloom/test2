@@ -56,7 +56,7 @@ Or, in Clojure:
 (run-tests) ;; runs all in project
 (run-tests :namespaces ['foobar.test.core 'foobar.test.extra])
 (run-tests :matching :migration)
-(run-tests :matching #(.startsWith (name (:name (meta %))) "users"))
+(run-tests :matching #(.startsWith (name (:name %)) "users"))
 
 ;; read the API docs for more details
 ```
