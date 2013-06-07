@@ -11,7 +11,9 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 ## Install
 
-`[test2 "1.0.0"]`
+```clojure
+[test2 "1.0.0"]
+```
 
 ## Example
 
