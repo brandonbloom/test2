@@ -63,6 +63,8 @@ You can also define [Test Suites](../../wiki/Home#test-suites), which act as fil
 
 ## Benefits over other libs
 
+TODO: rewrite this.
+
 The runner, asserters, definers, and reporter are separate. This means:
 
 * if you want a different reporter, you don't have to switch libs
