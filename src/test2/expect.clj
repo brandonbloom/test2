@@ -3,8 +3,8 @@
   (:require [clojure.string :as s]
             [test2.api.asserters :refer [add-to-report]]))
 
-(defn -expect [f args results]
-  ;; uhh..
+(defn -expect [ file line]
+
   )
 
 (defn- file-and-line ;; TODO: move this somewhere else, for everyone to use
@@ -15,36 +15,22 @@
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
-
-  ;; ;; this is pretty good:
-  ;; (prn {:file (:file (file-and-line (new java.lang.Throwable) 0))
-  ;;       :line (:line (meta &form))})
-
-  ;; `(prn ~(file-and-line (new java.lang.Throwable) 1))
-  ;; (let [result `(~f ~@args)]
-  ;;   (prn result)
-  ;;   `(prn "hi")
-  ;;   ;; `(do
-  ;;   ;;    (prn ~f)
-  ;;   ;;    (prn ~args)
-  ;;   ;;    ;; (report-pass nil)
-  ;;   ;;    ;; (report-fail nil
-  ;;   ;;    ;;              "yes"
-  ;;   ;;    ;;              8
-  ;;   ;;    ;;              'foo
-  ;;   ;;    ;;              ~(name f)
-  ;;   ;;    ;;              '[1 2 3]
-  ;;   ;;    ;;              '[1 2 3]
-  ;;   ;;    ;;              )
-  ;;   ;;    ;; (prn (~f ~@args))
-  ;;   ;;    )
-  ;;   )
-
-  ;; ;; ...
-  ;; (try
-  ;;   (catch Exception e
-  ;;     (report-error nil e)))
-  )
+  (let [file (:file (file-and-line (new java.lang.Throwable) 0))
+        line (:line (meta &form))]
+    `(let [always# {:file ~file
+                    :line ~line}
+           args# ~args
+           result# (apply ~f args#)]
+       ;; (if result#
+       ;;   (add-to-report (merge always#
+       ;;                         {:status :pass}))
+       ;;   (add-to-report (merge always#
+       ;;                         {:status :fail
+       ;;                          :failure-details {:result result#
+       ;;                                            :fn '~f
+       ;;                                            :raw-args '~args
+       ;;                                            :args args#}})))
+       )))
 
 (def ^{:doc "Nicer way of saying identity"}
   truthy? identity)
