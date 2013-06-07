@@ -1,6 +1,20 @@
 (ns test2.core
-  (:require [test2.helpers :refer [get-runner get-reporter]]
-            [test2.finder :refer [find-test-fns]]))
+  (:require [bultitude.core :as b]))
+
+;; the following are only needed for run-tests
+
+(defn- get-reporter
+  "Returns a reporter-fn, using the defualt one if none specified."
+  []
+  )
+
+(defn- get-runner
+  "Returns a runner-fn, using the defualt one if none specified."
+  []
+  )
+
+
+;; this does the main work
 
 (defn- run-tests [runner reporter test-fns]
   (let [runner (or runner (get-runner))
@@ -8,6 +22,20 @@
     (-> test-fns
         (runner)
         (reporter))))
+
+
+;; the following are only needed for the high-level convenience fns
+
+(defn- all-namespaces-in-project []
+  )
+
+(defn- find-test-fns
+  "Returns seq of test-fns within your project."
+  ([in-namespaces]
+     nil)
+  ([]
+     (find-test-fns (all-namespaces-in-project))))
+
 
 ;; the following just call (run-tests)
 
