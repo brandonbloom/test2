@@ -44,8 +44,7 @@ Or:
 
 (run-all-tests)
 (run-ns-tests 'foo.test.core 'foo.test.other)
-(run-matching-tests :db)
-(run-suite-tests :integration)
+(run-matching-tests :migration)
 ```
 
 ### Using different assertion functions
