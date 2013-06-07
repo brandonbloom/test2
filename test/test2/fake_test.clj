@@ -1,5 +1,7 @@
 (ns test2.fake-test)
 
+(defn test-ns-hook [])
+
 (defn ^:test fake-test-1 []
   "hi")
 
