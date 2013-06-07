@@ -72,15 +72,15 @@ Type: Map
 ```
 :status
   (Required, Keyword)
-  :pass if the test passed
+  :pass if the assertion passed
   :fail if the assertion failed
-  :error *only* if there was an *unexpected* exception
+  :error if there was an _unexpected_ exception
 
 :description
   (Optional, String)
-  For the reporter to know what the assertion is testing
+  Used by the reporter to describe the assertion
 
-:error
+:exception
   (Required when status is :error, Exception)
   The exception that unexpectedly occurred
 
