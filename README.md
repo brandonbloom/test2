@@ -4,6 +4,36 @@ This lib mostly just a SPEC (compojure-style) with a few helper functions and de
 
 Coming from clojure.test? Midje? Speclj. [Read here](#coming-from-other-libs) to see how test2 can help you.
 
+## Usage
+
+### Defining tests
+
+To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report. (Depending on the test-reporter you use, you may want to keep this short, like only one line).
+
+There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
+
+TODO: perhaps add more helper functions in `test2.core` to define tests.
+
+### Making assertions inside tests
+
+There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
+
+TODO: Add more! Especially if coming from Speclj or Midje.
+
+### Running tests
+
+```bash
+lein test2
+```
+
+Or if you want to run it from the REPL:
+
+```clojure
+(test2.core/run-tests) ;; runs all tests
+(test2.core/run-ns-tests 'namespace1 'namespace2) ;; limit to namespaces
+(test2.core/run-matching-tests f) ;; runs only tests whose metadata passes (f)
+```
+
 ## Spec
 
 Running tests is split into 5 distinct responsibilities:
@@ -25,10 +55,6 @@ Any Clojure function in your project that has a truthy `:test` metadata key is a
 
 If a test-fn has a docstring, that will be considered its "description" for the reporter.
 
-There are some helper functions for defining them. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
-
-TODO: perhaps add more helper functions in `test2.core` to define tests.
-
 ### Assertions
 
 While a test is being run, it has access to a variable `*test-results*`. It's a seq, and every assertion should conj a test-result onto it.
@@ -42,10 +68,6 @@ A test-result is a Clojure map with these keys and values:
   * `:fn` - a raw form of the function that was used in the test
   * `:args` - seq of the post-eval'd arg-values passed to :fn
   * `:raw-args` - seq of the pre-eval'd arg-forms passed to :fn
-
-There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
-
-TODO: Add more! Especially if coming from Speclj or Midje.
 
 ### Finding tests
 
