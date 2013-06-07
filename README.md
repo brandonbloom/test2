@@ -59,7 +59,7 @@ Or, in Clojure:
 
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
 
-You can also run [Test Suites](../../wiki/Home#test-suites) (only tests matching a given function).
+You can also define [Test Suites](../../wiki/Home#test-suites), which act as filters to run only tests matching a given function.
 
 ## Benefits over other libs
 
