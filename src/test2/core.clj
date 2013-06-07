@@ -17,7 +17,7 @@
 
 (defn- test-fns-in-ns [ns]
   (require ns)
-  (->> 'test2.core-test
+  (->> ns
        (ns-publics)
        (vals)
        (filter (comp :test meta))))
