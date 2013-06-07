@@ -18,7 +18,7 @@
   [namespaces-syms]
   (mapcat test-fns-in-ns
           (or namespaces-syms
-              (b/namespaces-on-classpath :classpath "src:test"))))
+              (b/namespaces-on-classpath :classpath "src:test:spec"))))
 
 (defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
