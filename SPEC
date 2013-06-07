@@ -1,19 +1,19 @@
 === Test2 Spec (1.0)
 
-# You define tests
-#
-# There's two halfs of testing, writing tests and running them.
-#
-# - Defining tests
-#   - Making assertions within them
-#
-# - Finding tests
-#   - Filtering which ones to run
-#   - Running them
-#   - Reporting the results
+Tests are broken down into the following responsibilities:
 
+- Defining tests
+  - Making assertions within them
+
+- Finding tests
+  - Filtering which ones to run
+  - Running them
+  - Reporting the results
 
 This breaks down into four roles: Definer, Asserter, Runner, Reporter.
+
+
+
 
 
 == Definer
@@ -34,29 +34,18 @@ assertion), the assertion-result's :status should be :error.
 
 == Runner
 
-A Runner is a function that takes a seq of test-fns and runs them. It
-has several responsibilities:
+A runner is a function that takes a seq of test-fns and returns a seq
+of test-results.
 
-takes a seq of test-fns and returns lazy seq of test-results
+(TODO: should the return-value be a lazy-seq? That would make
+command-line reporters report sooner. But should it be in the spec?)
 
-responsible for filtering
+Runners are responsible for filtering tests and deciding which ones to run.
 
-A function that takes a seq of
+A runner is responsible for filtering tests and running them, which
+means transl them into test-results.
 
 
-
-<!-- == Test Flow -->
-
-<!-- 1. All test-fns are found and passed to `run-test-fns`. -->
-<!-- 2. Each one is run and mapped into -->
-
-<!-- 1. User chooses some or all tests to run. -->
-
-<!-- 1. The user initiates running the tests somehow (lein, repl, whatever). -->
-<!-- 2. All tests are searched, required, and possibly filtered. -->
-<!-- 3. The ones allowed to run right now are passed to `run-test-fns`. -->
-<!-- 4. This function lazily maps each test-fn into a test-result. -->
-<!-- 5. It passes this lazy seq to the reporter, which then reports somehow. -->
 
 
 
