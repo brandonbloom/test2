@@ -54,7 +54,7 @@ Or, in Clojure:
 (use 'test2.core)
 
 (run-all-tests)
-(run-ns-tests 'foo.test.core 'foo.test.other)
+(run-ns-tests ['foo.test.core 'foo.test.other])
 (run-matching-tests :migration)
 ```
 
