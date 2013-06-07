@@ -10,8 +10,3 @@
 
 (defn randomized-runner [test-fns]
   )
-
-(defn get-runner
-  "Returns a runner-fn, using the defualt one if none specified."
-  []
-  )

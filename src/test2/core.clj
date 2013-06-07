@@ -1,8 +1,12 @@
-(ns test2.core)
+(ns test2.core
+  (:require [test2.helpers :refer [get-runner get-reporter]]))
 
 (defn- run-tests [runner reporter test-fns]
-
-  )
+  (let [runner (or runner (get-runner))
+        reporter (or reporter (get-reporter))]
+    (-> test-fns
+        (runner)
+        (reporter))))
 
 ;; the following just call (run-tests)
 
