@@ -71,7 +71,7 @@ You can also define [Test Suites](../../wiki/Home#test-suites), which act as fil
 * [test2-async-runner](#) - Runs tests concurrently.
 * [test2-difftest](#) - Reports tests using a diff-style format.
 
-See the [Plugins](#../../wiki/Home#plugins) section of the wiki for a comprehensive list.
+See the [Plugins](../../wiki/Home#plugins) section of the wiki for a comprehensive list.
 
 ## License
 
