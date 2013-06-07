@@ -14,11 +14,11 @@
 
 (defn- find-test-fns
   "Given namespace-syms, returns seq of test-fns.
-  With no args, uses all namespaces in your project."
-  ([in-namespaces]
-     (mapcat test-fns-in-ns in-namespaces))
-  ([]
-     (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
+  If nil, uses all namespaces in your project."
+  [namespaces-syms]
+  (if namespaces-syms
+    (mapcat test-fns-in-ns namespaces-syms)
+    (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
 
 (defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
@@ -30,9 +30,7 @@
   [& {:keys [runner reporter namespaces matcher]}]
   (let [runner (or runner (default-runner))
         reporter (or reporter (default-reporter))
-        test-fns (-> (if namespaces
-                       (find-test-fns namespaces)
-                       (find-test-fns))
+        test-fns (-> (find-test-fns namespaces)
                      (cond->
                       matcher (comp matcher meta)))]
     (-> test-fns
