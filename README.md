@@ -30,6 +30,8 @@ Copy/paste as needed into your project.clj:
 
 ## Usage
 
+Define tests like this:
+
 ```clojure
 (use 'test2.core)
 
@@ -43,9 +45,13 @@ Copy/paste as needed into your project.clj:
 
 Read more about [Defining Tests](../../wiki/Home#defining-tests).
 
+Then run them:
+
 ```bash
 $ lein test2
 ```
+
+Or in Clojure:
 
 ```clojure
 (use 'test2.core)
