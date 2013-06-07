@@ -1,14 +1,14 @@
 # test2
 
-This lib mostly just a SPEC (compojure-style) with a few helper functions and default implementations. The goal is that anyone can write new third-party peices that fit into this to do cool new things.
+This lib is mostly just a SPEC (ring-style) with a few helper functions and default implementations. The goal is that anyone can write new third-party peices that fit into this to do cool new things.
 
-Coming from clojure.test? Midje? Speclj. [Read here](#coming-from-other-libs) to see how test2 can help you.
+Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to see how test2 can help you.
 
 ## Usage
 
 ### Defining tests
 
-To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report. (Depending on the test-reporter you use, you may want to keep this short, like only one line).
+To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report.
 
 ```clojure
 (defn ^:test some-test []
@@ -17,7 +17,7 @@ To define tests, add the `:test` key to a function's metadata. Tests can be defi
 
 There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
-**TODO:** perhaps add more helper functions in `test2.core` to define tests.
+**TODO:** Add more helper functions in `test2.core` to define tests.
 
 ### Making assertions inside tests
 
@@ -41,17 +41,14 @@ Or if you want to run it from the REPL:
 (test2.core/run-suite-tests suite-name) ;; runs only tests in given suite
 ```
 
+
+
+
+
+
+
+
 ## Spec
-
-### High Level
-
-Running tests is split into 5 distinct responsibilities:
-
-* [Defining tests](#defining-tests)
-* [Assertions](#assertions)
-* [Finding tests](#finding-tests)
-* [Running tests](#running-tests)
-* [Reporting on tests](#reporting-on-tests)
 
 ### Flow
 
