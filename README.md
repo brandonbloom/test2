@@ -56,7 +56,7 @@ $ lein test2
 
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
 
-You can also run [Test Suites](../../wiki/Home#test-suites), or groups of functions matching a given function.
+You can also run [Test Suites](../../wiki/Home#test-suites), or only tests matching a given function.
 
 ### Benefits over other libs
 
