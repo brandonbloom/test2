@@ -5,6 +5,5 @@
   [f & args]
   )
 
-(def truthy?
-  "Nicer way of saying (identity)"
-  identity)
+(def ^{:doc "Nicer way of saying identity"}
+  truthy? identity)
