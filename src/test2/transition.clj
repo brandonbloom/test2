@@ -15,3 +15,8 @@
   "Makes assertions using clojure.test/is syntax"
   [& args]
   )
+
+(defmacro testing
+  "Combines tests using clojure.test/testing syntax"
+  [& args]
+  )
