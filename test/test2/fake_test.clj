@@ -5,3 +5,6 @@
 
 (defn fake-test-2 []
   "bye")
+
+(defn ^:test fake-test-3 []
+  "kthx")
