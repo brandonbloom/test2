@@ -32,7 +32,7 @@ Define some tests:
 (use 'test2.core)
 
 (defn ^:test user-creation
-  "Creating users adds them to the list, but they're disable by default." []
+  "Creating users adds them to the list, but they're disabled by default." []
   (expect empty? (all-users))
   (create-user "bob")
   (expect = 1 (count (all-users)))
