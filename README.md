@@ -9,8 +9,8 @@ The major feature is its [SPEC](SPEC.md) (like ring-clojure), which allows you t
 Copy/paste as needed into your project.clj:
 
 ```clojure
-[test2 "1.0.0"]             ;; in dependencies
-[lein-test2 "1.0.0"]        ;; in plugins
+:dependencies [[test2 "1.0.0"]]
+:aliases {"test2" ["run" "-m" "test2.run/run-tests"]}
 ```
 
 ## Documentation
