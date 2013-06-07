@@ -48,3 +48,22 @@
              reporter
              (filter (comp f meta)
                      (find-test-fns))))
+
+(defn NEW--run-tests
+  "Runner and reporter are optional fns conforming to the SPEC.
+
+   If namespaces (syms) is given, find tests only in these. Otherwise,
+   look in all namespaces in project.
+
+   If matcher is given, only run tests passing (matcher test-metadata)"
+  [& {:keys [runner reporter namespaces matcher]}]
+  (let [runner (or runner (default-runner))
+        reporter (or reporter (default-reporter))
+        test-fns (-> (if namespaces
+                       (find-test-fns namespaces)
+                       (find-test-fns))
+                     (cond->
+                      matcher (comp matcher meta)))]
+    (-> test-fns
+        (runner)
+        (reporter))))
