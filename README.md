@@ -2,7 +2,7 @@
 
 Test2 is a modular, composable testing lib for Clojure.
 
-It has a ring-like [SPEC](SPEC), so that different parts can be
+It has a ring-like [SPEC](SPEC.md), so that different parts can be
 changed out for alternatives. For example, if you want a different
 reporter function, you can write one or use another reporter lib that
 conforms to this spec.
