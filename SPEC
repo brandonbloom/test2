@@ -17,8 +17,8 @@ Testing is broken down into the following responsibilities:
 
 == Definer
 
-There are just helpers to create test-fns. They're optional since it's
-pretty easy to make a test-fn with just (defn ^:test some-test [] ...)
+Definers are just helpers to create test-fns. They're optional since
+it's pretty easy to make a test-fn with (defn ^:test some-test [] ...)
 
 
 == Asserters
