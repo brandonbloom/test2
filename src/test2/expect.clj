@@ -15,11 +15,10 @@
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
-  (prn (file-and-line (new java.lang.Throwable) 0))
-  (prn (file-and-line (new java.lang.Throwable) 1))
-  (prn (file-and-line (new java.lang.Throwable) 2))
-  (prn (file-and-line (new java.lang.Throwable) 3))
-  (prn (meta &form))
+
+  ;; ;; this is pretty good:
+  ;; (prn {:file (:file (file-and-line (new java.lang.Throwable) 0))
+  ;;       :line (:line (meta &form))})
 
   ;; `(prn ~(file-and-line (new java.lang.Throwable) 1))
   ;; (let [result `(~f ~@args)]
