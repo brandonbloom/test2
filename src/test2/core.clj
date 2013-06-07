@@ -15,16 +15,16 @@
 
 ;; the following are only needed for the high-level convenience fns
 
+(defn- test-fns-in-ns [ns]
+  (require ns)
+  ;; find all vars inside ns.
+  ;; filter only which have ^:test
+  [])
+
 (defn- find-test-fns
   "Returns seq of test-fns within your project."
   ([in-namespaces]
-     (remove nil?
-             (for [ns in-namespaces]
-               (require ns)
-               ;; find all vars inside ns.
-               ;; include them if they have :test in their metadata
-               ;; otherwise nil
-               )))
+     (mapcat test-fns-in-ns in-namespaces))
   ([]
      (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
 
