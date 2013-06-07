@@ -4,4 +4,4 @@
 (defn test-ns-hook [])
 
 (defn ^:test real-test-1 []
-  (expect empty? [1 2 3]))
+  (expect empty? []))
