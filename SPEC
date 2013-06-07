@@ -1,13 +1,45 @@
 === Test2 Spec (1.0)
 
-Test2 finds tests, filters them, runs them, and reports on them, in
-that order. Filtering them is configurable. Runners and reporters can
-be swapped out for different ones.
+# You define tests
+#
+# There's two halfs of testing, writing tests and running them.
+#
+# - Defining tests
+#   - Making assertions within them
+#
+# - Finding tests
+#   - Filtering which ones to run
+#   - Running them
+#   - Reporting the results
 
-During execution of a test-fn, the seq `*test-results*` is available,
-which every assertion should conj an assertion-result onto.
+
+This breaks down into four roles: Definer, Asserter, Runner, Reporter.
 
 
+== Definer
+
+There are just helpers to create test-fns. They're optional since it's
+pretty easy to make a test-fn with just (defn ^:test some-test [] ...)
+
+
+== Asserters
+
+During execution of a test-fn, `*test-results*` is a ref to a
+seq. Asserters are helper functions that should take some assertion,
+evaluate it, and conj an assertion-result onto it.
+
+Note: if an unexpected error occurred (not specified by the
+assertion), the assertion-result's :status should be :error.
+
+
+== Runner
+
+A Runner is a function that takes a seq of test-fns and runs them. It
+has several responsibilities:
+
+takes a seq of
+
+A function that takes a seq of
 
 
 
@@ -31,6 +63,7 @@ which every assertion should conj an assertion-result onto.
 Any Clojure function in your project that has a truthy `:test`
 metadata key is a test-fn. If it has a docstring, that will be
 considered its "description" for the reporter.
+
 
 == assertion-result
 
@@ -69,6 +102,7 @@ An assertion-result is a Clojure map with these keys and values:
     :raw-args
     (Required, seq of raw forms)
     The args before they were evaluated in the assertion
+
 
 == test-result
 
