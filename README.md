@@ -54,7 +54,7 @@ $ lein test2
 (run-matching-tests :migration)
 ```
 
-Read more about [Swapping out the Runner](../../wiki/Home#swapping-out-the-runner) or [Swapping out the Reporter](../../wiki/Home#swapping-out-the-reporter).
+Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
 
 ### Benefits over other libs
 
