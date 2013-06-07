@@ -11,8 +11,8 @@
   [f & {:keys [runner reporter]}]
   )
 
-(defn run-suite-tests
+(defn run-tests-in-suite
   "Runs only tests in the named suite."
-  [suite-name & {:keys [runner reporter]}]
+  [suite & {:keys [runner reporter]}]
   ;; lookup suite fn, and call run-matching-tests with it.
   )
