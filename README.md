@@ -2,13 +2,10 @@
 
 Test2 is a modular, composable testing lib for Clojure.
 
-It has a single SPEC, and any functions which conform to the spec can be used.
-
-You can use any assertion functions that conform
-
-Test2 is to testing as Ring is to web apps.
-
-This lib is mostly just a SPEC (ring-style) with a few helper functions and default implementations. The goal is that anyone can write new third-party peices that fit into this to do cool new things.
+It has a ring-like [SPEC](SPEC), so that different parts can be
+changed out for alternatives. For example, if you want a different
+reporter function, you can write one or use another reporter lib that
+conforms to this spec.
 
 Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to see how test2 can help you.
 
@@ -34,10 +31,8 @@ Read more about [Defining Tests](../../wiki/Defining-Tests).
 ### Running tests
 
 ```bash
-lein test2
+$ lein test2
 ```
-
-Or:
 
 ```clojure
 (use 'test2.core)
