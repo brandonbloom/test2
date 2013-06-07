@@ -58,7 +58,16 @@ Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-o
 
 You can also run [Test Suites](../../wiki/Home#test-suites), or only tests matching a given function.
 
-### Benefits over other libs
+## Benefits over other libs
+
+The runner, asserters, definers, and reporter are separate. This means:
+
+* if you want a different reporter, you don't have to switch libs
+* if you want to use different assert functions, you don't have to switch libs
+* if you want to have an auto-runner, *you don't have to switch libs*
+
+Just add a dependency that adds whatever functionality you want.
+
 
 
 
