@@ -7,7 +7,7 @@
 (defn- test-fns-in-ns
   "Given a ns-symbol, return a seq of test-fns."
   [ns]
-  (require ns)
+  (require :reload ns)
   (->> ns
        (ns-publics)
        (vals)
