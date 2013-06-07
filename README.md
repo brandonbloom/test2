@@ -42,11 +42,6 @@ $ lein test2
 (run-matching-tests :migration)
 ```
 
-### Using different assertion functions
-
-Don't like `expect`? Just require another lib that conforms to test2's spec, such as: **TODO**.
-
-
 ### Using different runners or reporters
 
 Put this in your `project.clj` file:
