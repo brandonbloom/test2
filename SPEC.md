@@ -88,6 +88,14 @@ An assertion-result is a Clojure map with these keys and values:
   (Required when status is :fail, Map)
   Has the following keys:
 
+    :file
+    (Required, String)
+    The file the assertion was in.
+
+    :line
+    (Required, Number)
+    The line the assertion was on.
+
     :result
     (Required, any type)
     The result of the assertion
