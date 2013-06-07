@@ -1,4 +1,5 @@
 (ns test2.def
+  "Convenience functions for defining tests."
   (:require [clojure.string :as s]))
 
 (defmacro deftest

@@ -1,4 +1,5 @@
-(ns test2.transition)
+(ns test2.transition
+  "Helpers to transition from clojure.test")
 
 (defmacro deftest
   "Creates a test using clojure.test/deftest syntax"

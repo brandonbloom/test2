@@ -1,5 +1,5 @@
 (ns test2.api.asserters
-  "")
+  "For writing asserters.")
 
 (def ^:dynamic *assertions-results*
   "A ref to a vec, to be mutated during a test.

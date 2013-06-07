@@ -1,4 +1,5 @@
 (ns test2.expect
+  "Default functions for making assertions in tests."
   (:require [clojure.string :as s]
             [test2.api.asserters :refer [report-error report-pass report-fail]]))
 

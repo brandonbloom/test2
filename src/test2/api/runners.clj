@@ -1,4 +1,5 @@
 (ns test2.api.runners
+  "For writing test-runners."
   (:require [test2.api.asserters :refer [*assertions-results*]]))
 
 (defn run-test-fn

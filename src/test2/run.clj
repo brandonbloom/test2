@@ -1,4 +1,5 @@
 (ns test2.run
+  "Entry point for running tests via code (i.e. in the REPL)."
   (:require [bultitude.core :as b]
             [test2.default.runner :refer [default-runner]]
             [test2.default.reporter :refer [default-reporter]]))
