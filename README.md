@@ -6,7 +6,7 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 ## Usage
 
-### Defining tests
+### Writing Tests
 
 To define tests, add the `:test` key to a function's metadata. Tests can be defined anywhere. If they have a docstring, that will be used in the report.
 
@@ -15,15 +15,15 @@ To define tests, add the `:test` key to a function's metadata. Tests can be defi
   ...)
 ```
 
+**TODO:** Make some primary helper functions in `test2.core` to define tests?
+
 There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
-**TODO:** Add more helper functions in `test2.core` to define tests.
-
-### Making assertions inside tests
+**TODO:** Make some primary assertion functions!
 
 There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
 
-**TODO:** Add more! Especially if coming from Speclj or Midje.
+**TODO**: Make some assertion functions to help transition from Midje or Speclj.
 
 ### Running tests
 
@@ -56,7 +56,7 @@ If you put this in `test/test2_config.clj`:
 
 ```clojure
 (def suites {:database :db
-             :default (complement :db) ;; If none is provided, defaults to `true`
+             :default (complement :db)
              :all true)
 ```
 
