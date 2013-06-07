@@ -1,19 +1,18 @@
-=== Test2 Spec (1.0)
+Test2 Spec (1.0)
+================
 
-Tests are broken down into the following responsibilities:
+Overview
+--------
 
-- Defining tests
-  - Making assertions within them
+Testing is broken down into the following responsibilities:
+
+- Defining tests (Definer)
+  - Making assertions within them (Asserter)
 
 - Finding tests
   - Filtering which ones to run
-  - Running them
-  - Reporting the results
-
-This breaks down into four roles: Definer, Asserter, Runner, Reporter.
-
-
-
+  - Running them (Runner)
+  - Reporting the results (Reporter)
 
 
 == Definer
@@ -52,7 +51,8 @@ into HTML, or just print dots, or do something fancy like difftest.
 
 
 
-
+Types
+-----
 
 == test-fn
 
