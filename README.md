@@ -65,6 +65,7 @@ The runner, asserters, definers, and reporter are separate. This means:
 * if you want a different reporter, you don't have to switch libs
 * if you want to use different assert functions, you don't have to switch libs
 * if you want to have an auto-runner, *you don't have to switch libs*
+* if you prefer nested tests like rspec, you can find a plugin for that instead of switching libs
 
 Just add a dependency that adds whatever functionality you want.
 
