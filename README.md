@@ -44,11 +44,6 @@ Then run them:
 
 ```bash
 $ lein test2
-
-# or
-;; this doesnt belong here, put it in the wiki or something
-$ lein test2 -runner test2.default.runner/randomized-runner -matcher :db
-lein test2 -runner test2.default.runner/randomized-runner -matcher '(every-pred :slow :db)'
 ```
 
 Or, in Clojure:
@@ -60,13 +55,9 @@ Or, in Clojure:
 (run-tests :namespaces ['foobar.test.core 'foobar.test.extra])
 (run-tests :matching :migration)
 (run-tests :matching #(-> % :name name (.startsWith "users")))
-
-;; read the API docs for more details
 ```
 
-Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
-
-You can also define [Test Suites](../../wiki/Home#test-suites), which act as filters to run only tests matching a given function.
+When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function too. Read more about it in [Command-line and Leiningen options](../../wiki/Home#command-line-and-leiningen-options).
 
 ## Notable Plugins
 
