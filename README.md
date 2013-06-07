@@ -55,7 +55,9 @@ Or, in Clojure:
 
 (run-tests) ;; runs all in project
 (run-tests :namespaces ['foobar.test.core 'foobar.test.extra])
-(run-tests :matching :migration) ;; read more about test-suites below
+(run-tests :matching :migration)
+
+;; read the API docs for more details
 ```
 
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
