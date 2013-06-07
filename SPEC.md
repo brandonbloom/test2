@@ -59,7 +59,7 @@ Types
 -----
 
 ### test-fn
-(Var)
+Type: Var
 
 Any Clojure function in your project that has a truthy `:test`
 metadata key is a test-fn. If it has a docstring, that will be
@@ -67,7 +67,7 @@ considered its "description" for the reporter.
 
 
 ### assertion-result
-(Map)
+Type: Map
 
 ```
 :status
@@ -114,7 +114,7 @@ considered its "description" for the reporter.
 ```
 
 ### test-result
-(Map)
+Type: Map
 
 ```
 :results
