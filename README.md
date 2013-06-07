@@ -57,7 +57,7 @@ Or, in Clojure:
 (run-tests :matching #(-> % :name name (.startsWith "users")))
 ```
 
-When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line and Leiningen options](../../wiki/Home#command-line-and-leiningen-options).
+When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line options](../../wiki/Home#command-line-options).
 
 ## Notable Plugins
 
