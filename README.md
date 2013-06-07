@@ -14,8 +14,8 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 Copy/paste as needed into your project.clj:
 
 ```clojure
-:dependencies [[test2 "1.0.0"]]
-:plugins      [[lein-difftest "2.0.0"]]
+[[test2 "1.0.0"]]         ;; in :dependencies
+[[lein-difftest "2.0.0"]] ;; in :plugins
 ```
 
 ## Example
