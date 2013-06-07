@@ -10,7 +10,9 @@
         (runner)
         (reporter))))
 
-(defn- test-fns-in-ns [ns]
+(defn- test-fns-in-ns
+  "Given a ns-symbol, return a seq of test-fns."
+  [ns]
   (require ns)
   (->> ns
        (ns-publics)
@@ -18,7 +20,8 @@
        (filter (comp :test meta))))
 
 (defn- find-test-fns
-  "Returns seq of test-fns within your project."
+  "Given namespace-syms, returns seq of test-fns.
+  With no args, uses all namespaces in your project."
   ([in-namespaces]
      (mapcat test-fns-in-ns in-namespaces))
   ([]
