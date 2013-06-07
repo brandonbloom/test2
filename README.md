@@ -12,7 +12,7 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 (use 'test2.core)
 
 (defn ^:test user-creation
-  "Creating users adds them, but they're disable by default." []
+  "Creating users adds them to the list, but they're disable by default." []
   (expect empty? (all-users))
   (create-user "bob")
   (expect = 1 (count (all-users)))
@@ -21,15 +21,20 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
 
 Any function in your project with the `:test` key on its metadata is a valid test. If they have a docstring, that will be used in the report.
 
-**TODO:** Make `test2.core/deftest` as a shortcut for `defn ^:test`
+As a shortcut, you can use `test2.core/deftest` to omit the params-list and the metadata:
 
-There are some helper functions for defining tests. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
+```clojure
+(use 'test2.core)
 
-**TODO:** Make some primary assertion functions!
+(deftest user-creation
+  "Creating users adds them to the list, but they're disable by default."
+  (expect empty? (all-users))
+  ...)
+```
 
-There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
+If you're coming from clojure.test, you can use `deftest`, `use-fixtures`, and `is`, in `test2.transition.test`.
 
-**TODO**: Make some assertion functions to help transition from Midje or Speclj.
+**TODO**: Make some assertion functions to help transition from Midje or Speclj maybe?
 
 ### Running tests
 
@@ -131,3 +136,5 @@ Where are all the places you can specify things?
 
 - Reporter can be specified by passing it to `run-tests`
 - Reporter can be specified by putting it in `project.clj`
+
+- Suites can be specified by making it a map in `test/test2_config.clj/suites`
