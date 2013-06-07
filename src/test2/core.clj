@@ -16,10 +16,11 @@
 ;; the following are only needed for the high-level convenience fns
 
 (defn- test-fns-in-ns [ns]
-  (require ns)
-  ;; find all vars inside ns.
-  ;; filter only which have ^:test
-  [])
+  (->> ns
+       (require)
+       (ns-publics)
+       (vals)
+       (filter (comp :test meta))))
 
 (defn- find-test-fns
   "Returns seq of test-fns within your project."
