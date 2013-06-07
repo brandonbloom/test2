@@ -10,7 +10,7 @@ Copy/paste as needed into your project.clj:
 
 ```clojure
 :dependencies [[test2 "1.0.0"]]
-:aliases {"test2" ["run" "-m" "test2.run/run-tests"]}
+:aliases {"test2" ["run" "-m" "test2.run"]}
 ```
 
 ## Documentation
@@ -44,6 +44,11 @@ Then run them:
 
 ```bash
 $ lein test2
+
+# or
+;; this doesnt belong here, put it in the wiki or something
+$ lein test2 -runner test2.default.runner/randomized-runner -matcher :db
+lein test2 -runner test2.default.runner/randomized-runner -matcher '(every-pred :slow :db)'
 ```
 
 Or, in Clojure:
