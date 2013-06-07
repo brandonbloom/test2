@@ -15,18 +15,18 @@
 
 ;; the following are only needed for the high-level convenience fns
 
-(defn- current-project-name []
-  "test2")
-
-(defn- all-namespaces-in-project []
-  (b/namespaces-on-classpath :prefix (current-project-name)))
-
 (defn- find-test-fns
   "Returns seq of test-fns within your project."
   ([in-namespaces]
-     nil)
+     (remove nil?
+             (for [ns in-namespaces]
+               (require ns)
+               ;; find all vars inside ns.
+               ;; include them if they have :test in their metadata
+               ;; otherwise nil
+               )))
   ([]
-     (find-test-fns (all-namespaces-in-project))))
+     (find-test-fns (b/namespaces-on-classpath :classpath "src:test"))))
 
 
 ;; the following just call (run-tests)
