@@ -46,6 +46,11 @@ Or if you want to run it from the REPL:
 (test2.core/run-suite-tests suite-name) ;; runs only tests in given suite
 ```
 
+### Using different assertion functions
+
+Don't like `expect`? Just require another lib that conforms to test2's spec, such as: **TODO**.
+
+
 ### Using different runners or reporters
 
 Put this in your `project.clj` file:
