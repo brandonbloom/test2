@@ -23,13 +23,7 @@ Any Clojure function in your project that has a truthy `:test` metadata key is a
   ...)
 ```
 
-A test function may also have the metadata `:test-name`, a short (1-line) string representing what this test does. Example:
-
-```clojure
-(defn ^:test ^{:test-name "makes sure the system isn't totally hosed"}
-  some-test []
-  ...)
-```
+If a test function has a docstring, that will be considered its "description" for the reporter.
 
 There are some helper functions for defining them. Look at `test2.transition/deftest` and `test2.transition/use-fixtures` if you're migrating from clojure.test.
 
@@ -49,13 +43,26 @@ A test-result is a Clojure map with these keys and values:
   * `:args` - seq of the post-eval'd arg-values passed to :fn
   * `:raw-args` - seq of the pre-eval'd arg-forms passed to :fn
 
+There are some helper functions for assertions. Look at `test2.transition/is` and `test2.transition/are` if you're migrating from clojure.test.
 
-
-
+TODO: Add more! Especially if coming from Speclj or Midje.
 
 ### Finding tests
 
+There are some concrete helper functions for finding tests in your namespace.
+
+* `test2.core/get-test-fns` - Return a seq of all test functions in all this project's namespaces matching the given regex (loading them if necessary?), or all if no regex provided.
+* `test2.core/run-test-fn` - Runs a single test-fn, wrapping `*test-results*` around it, and returning the test-results.
+* `default-runner` - Just maps `get-test-fns` with `run-test-fn` and passes results to reporter.
+* `default-randomized-runner` - Same as `default-runner` but runs tests in random order. Note: this does not affect the order they are reported in.
+
+If you're running tests from in a REPL, you'd call `default-runner` as it is the highest-level entry-point.
+
+TODO: figure out where the selector-fn fits into all this. I'm starting to think it needs to have a single stable high-level runner, that filters tests by sel-fn, finds the inner-runner, finds the report, and puts them all together. Seems legit? If you don't pass them, they'll be found out from your configs.
+
 ### Running tests
+
+`run-all-tests` will run all tests, finds your reporter, and passes the results to it. Your reporter should do the rest.
 
 ### Reporting on tests
 
@@ -63,3 +70,15 @@ A test-result is a Clojure map with these keys and values:
 ## Coming from other libs
 
 Gotta do this part later.
+
+
+
+
+
+
+Questions:
+
+Where are all the places you can specify things?
+
+- Runner can be specified by passing it to `run-tests`
+- Runner can be specified by putting it in `project.clj`
