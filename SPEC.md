@@ -84,17 +84,17 @@ Type: Map
   (Required when status is :error, Exception)
   The exception that unexpectedly occurred
 
-:failure-report
+:file
+  (Required, String)
+  The file the assertion was in.
+
+:line
+  (Required, Number)
+  The line the assertion was on.
+
+:failure-details
   (Required when status is :fail, Map)
   Has the following keys:
-
-    :file
-    (Required, String)
-    The file the assertion was in.
-
-    :line
-    (Required, Number)
-    The line the assertion was on.
 
     :result
     (Required, any type)
