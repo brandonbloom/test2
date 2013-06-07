@@ -14,7 +14,7 @@ Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to
   (expect empty? (all-users))
   (create-user "bob")
   (expect 1 (count (all-users)))
-  (expect truthy? (:disabled (first (all-users))))
+  (expect truthy? (:disabled (first (all-users)))))
 ```
 
 Any function in your project with the `:test` key on its metadata is a valid test. If they have a docstring, that will be used in the report.
