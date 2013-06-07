@@ -51,13 +51,11 @@ Running tests is split into 5 distinct responsibilities:
 
 ### Defining tests
 
-Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document. Example:
-
-If a test-fn has a docstring, that will be considered its "description" for the reporter.
+Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document. If a test-fn has a docstring, that will be considered its "description" for the reporter.
 
 ### Assertions
 
-While a test is being run, it has access to a variable `*test-results*`. It's a seq, and every assertion should conj a test-result onto it.
+While a test is being run, it has access to a variable `*test-results*` a seq that every assertion should conj a test-result onto.
 
 A test-result is a Clojure map with these keys and values:
 
