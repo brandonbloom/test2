@@ -7,7 +7,7 @@ changed out for alternatives. For example, if you want a different
 reporter function, you can write one or use another reporter lib that
 conforms to this spec.
 
-Coming from clojure.test? Midje? Speclj? [Read here](#coming-from-other-libs) to see how test2 can help you.
+Coming from clojure.test? Midje? Speclj? [Read here](#benefits-over-other-libs) to see how test2 can help you.
 
 ## Install
 
@@ -23,9 +23,11 @@ Copy/paste as needed into your project.clj:
 * [Wiki](https://github.com/evanescence/test2/wiki)
 * [API Docs](http://evanescence.github.com/test2)
 
-## Usage
+## Community
 
-### Example tests
+* #clojure on [Freenode](http://freenode.net/) IRC
+
+## Usage
 
 ```clojure
 (use 'test2.core)
@@ -40,8 +42,6 @@ Copy/paste as needed into your project.clj:
 
 Read more about [Defining Tests](../../wiki/Home#defining-tests).
 
-### Running tests
-
 ```bash
 $ lein test2
 ```
@@ -54,9 +54,18 @@ $ lein test2
 (run-matching-tests :migration)
 ```
 
+Read more about [Swapping out the Runner](../../wiki/Home#swapping-out-the-runner) or [Swapping out the Reporter](../../wiki/Home#swapping-out-the-reporter).
+
+### Benefits over other libs
+
+
+
+
 ### Swapping stuff out
 
-Your `project.clj` file can have a `:test2` key to a map of options. Currently it takes `:runner` and `:reporter` which are symbols pointing to functions which conform to the [SPEC](SPEC.md).
+Your `project.clj` file can have a `:test2` key to a map of options.
+
+Currently it takes `:runner` and `:reporter` which are symbols pointing to functions which conform to the [SPEC](SPEC.md).
 
 ```clojure
 :test2 {:runner test2.runner/randomized-runner}
