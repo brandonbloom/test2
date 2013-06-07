@@ -1,6 +1,8 @@
 (ns leiningen.test2
-  (:require [test2.core :refer [run-all-tests]]))
+  (:require [leiningen.core.eval :refer [eval-in-project]]))
 
 (defn test2 [project & args]
-  (run-all-tests :runner (get-in project [:test2 :runner])
-                 :reporter (get-in project [:test2 :reporter])))
+  (eval-in-project (update-in project [:dependencies]
+                              conj ['test2 "0.1.0-SNAPSHOT"])
+                   (run-all-tests :runner (get-in project [:test2 :runner])
+                                  :reporter (get-in project [:test2 :reporter]))))
