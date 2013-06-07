@@ -51,10 +51,10 @@ $ lein test2
 Or, in Clojure:
 
 ```clojure
-(use 'test2.core)
+(use 'test2.run)
 
 (run-tests) ;; runs all in project
-(run-tests :namespaces ['foo.test.core 'foo.test.other])
+(run-tests :namespaces ['foobar.test.core 'foobar.test.extra])
 (run-tests :matching :migration) ;; read more about test-suites below
 ```
 
