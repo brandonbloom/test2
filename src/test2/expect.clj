@@ -3,7 +3,7 @@
             [test2.api.assertions :refer [*assertions-results*]]))
 
 (defmacro expect
-  "Takes a function and some args, evals, them, and reports on them."
+  "Runs (apply f args) and reports on the result."
   [f & args]
   ;; does something with *assertions-results*
   )
