@@ -22,14 +22,6 @@ Copy/paste as needed into your project.clj:
 
 * #clojure on [Freenode](http://freenode.net/) IRC
 
-## Notable Plugins
-
-* [test2-rspec](#) - Provides definers and asserters similar to RSpec / Speclj.
-* [test2-midje](#) - Provides similar functions to Midje's `facts`/`fact`.
-* [test2-autorunner](#) - Watches your files and re-runs tests when something changes.
-* [test2-async-runner](#) - Runs tests concurrently.
-* [test2-difftest](#) - Reports tests using a diff-style format.
-
 ## Usage
 
 Define some tests:
@@ -70,6 +62,16 @@ Or, in Clojure:
 Read more about [Swapping out the Runner or Reporter](../../wiki/Home#swapping-out-the-runner-or-reporter).
 
 You can also define [Test Suites](../../wiki/Home#test-suites), which act as filters to run only tests matching a given function.
+
+## Notable Plugins
+
+* [test2-rspec](#) - Provides definers and asserters similar to RSpec / Speclj.
+* [test2-midje](#) - Provides similar functions to Midje's `facts`/`fact`.
+* [test2-autorunner](#) - Watches your files and re-runs tests when something changes.
+* [test2-async-runner](#) - Runs tests concurrently.
+* [test2-difftest](#) - Reports tests using a diff-style format.
+
+See the [Plugins](#../../wiki/Home#plugins) section of the wiki for a comprehensive list.
 
 ## License
 
