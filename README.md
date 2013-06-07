@@ -41,6 +41,32 @@ Or if you want to run it from the REPL:
 (test2.core/run-suite-tests suite-name) ;; runs only tests in given suite
 ```
 
+### Using different runners or reporters
+
+Put this in your `project.clj` file:
+
+```clojure
+:test2 {:runner fancy-runner.core/some-runner-fn
+        :reporter fancy-reporter.core/some-reporter-fn}
+```
+
+### Suites
+
+If you put this in `test/test2_config.clj`:
+
+```clojure
+(def suites {:database :db
+             :default (complement :db) ;; If none is provided, defaults to `true`
+             :all true)
+```
+
+With this config:
+
+- running the `:all` suite runs every test
+- running the `:database` suite runs only tests defined with `:db` in its metadata
+- running the `:default` suite runs only tests defined *without* `:db` in its metadata
+
+The `:default` suite is what's run when you don't specify a suite. It defaults to `true`, meaning run every test.
 
 
 
@@ -48,15 +74,7 @@ Or if you want to run it from the REPL:
 
 
 
-## Spec
 
-### Flow
-
-1. The user initiates running the tests somehow (lein, repl, whatever).
-2. All tests are found, and filtered appropriately.
-3. The ones allowed to run right now are passed to `run-test-fns`.
-4. This function lazily maps each test-fn into a test-result.
-5. It passes this lazy seq to the reporter, which then reports somehow.
 
 ### Finding tests
 
@@ -94,3 +112,6 @@ Where are all the places you can specify things?
 
 - Runner can be specified by passing it to `run-tests`
 - Runner can be specified by putting it in `project.clj`
+
+- Reporter can be specified by passing it to `run-tests`
+- Reporter can be specified by putting it in `project.clj`
