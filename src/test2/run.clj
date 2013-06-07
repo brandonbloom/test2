@@ -38,3 +38,11 @@
     (-> test-fns
         (runner)
         (reporter))))
+
+(defn -main
+  "Entry point for running via command line."
+  [& {:strs [-runner -reporter -matcher]}]
+  (run-tests :runner (-> -runner symbol resolve)
+             :reporter (-> -reporter symbol resolve)
+             :matcher (if -matcher
+                        (load-string -matcher))))
