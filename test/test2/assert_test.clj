@@ -28,12 +28,11 @@
                                 :args [[1 2 3]]
                                 :raw-args '[[1 2 (+ 1 2)]]}}
              r2))
-      ;; (is (= {:status :error
-      ;;         :file "assert_test.clj"
-      ;;         :line 7
-      ;;         :exception 4}
-      ;;        r3))
-      )))
+      (is (= :error (:status r3)))
+      (is (= "assert_test.clj" (:file r3)))
+      (is (= 9 (:line r3)))
+      (is (not (nil? (:exception r3))))
+      (is (= ArithmeticException (type (:exception r3)))))))
 
 (defn test-ns-hook []
   (testing-assert))
