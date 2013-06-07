@@ -2,7 +2,13 @@
   (:require [clojure.test :refer :all]
             [test2.core]))
 
-(deftest testing-find-test-fns
-  (let [fns (#'test2.core/find-test-fns)]
+(defn ^:test fake-test-1 []
+  "hi")
+
+(defn fake-test-2 []
+  "bye")
+
+(deftest testing-test-fns-in-ns
+  (let [fns (#'test2.core/test-fns-in-ns 'test2.core-test)]
     (prn fns)
-    (is (= 0 1))))
+    (is (= [#'fake-test-1] fns))))
