@@ -94,9 +94,17 @@ TODO: figure out where the selector-fn fits into all this. I'm starting to think
 
 ### Running tests
 
-`run-all-tests` will run all tests, finds your reporter, and passes the results to it. Your reporter should do the rest.
+The test runner function will take each test-fn, run it to get its assertion-results, and return a map of `{:results assertion-results, :test (var test-fn)}` for each test. It then passes this seq into the reporter.
 
 ### Reporting on tests
+
+This gets a lazy seq of test-results.
+
+
+
+
+
+
 
 
 ## Coming from other libs
