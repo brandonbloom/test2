@@ -29,6 +29,7 @@ There are some helper functions for assertions. Look at `test2.transition/is` an
 
 ```bash
 lein test2
+lein test2 -suite :suite-name
 ```
 
 Or if you want to run it from the REPL:
@@ -37,9 +38,12 @@ Or if you want to run it from the REPL:
 (test2.core/run-tests) ;; runs all tests
 (test2.core/run-ns-tests 'namespace1 'namespace2) ;; limit to namespaces
 (test2.core/run-matching-tests f) ;; runs only tests whose metadata passes (f)
+(test2.core/run-suite-tests suite-name) ;; runs only tests in given suite
 ```
 
 ## Spec
+
+### High Level
 
 Running tests is split into 5 distinct responsibilities:
 
@@ -49,13 +53,21 @@ Running tests is split into 5 distinct responsibilities:
 * [Running tests](#running-tests)
 * [Reporting on tests](#reporting-on-tests)
 
+### Flow
+
+1. The user initiates running the tests somehow (lein, repl, whatever).
+2. All tests are found, and filtered appropriately.
+3. The ones allowed to run right now are passed to `run-test-fns`.
+4. This function lazily maps each test-fn into a test-result.
+5. It passes this lazy seq to the reporter, which then reports somehow.
+
 ### Defining tests
 
 Any Clojure function in your project that has a truthy `:test` metadata key is a valid test. To eliminate ambiguity, we refer to these as test-fns in this document. If a test-fn has a docstring, that will be considered its "description" for the reporter.
 
 ### Assertions
 
-While a test is being run, it has access to a variable `*test-results*` a seq that every assertion should conj a test-result onto.
+While a test is being run, it has access to a variable `*test-results*`, a seq that every assertion should conj a test-result onto.
 
 A test-result is a Clojure map with these keys and values:
 
