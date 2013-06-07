@@ -6,7 +6,7 @@
   nil)
 
 (defn default-runner [test-fns]
-  )
+  (map run-test-fn test-fns))
 
 (defn randomized-runner [test-fns]
-  )
+  (map run-test-fn (shuffle test-fns)))
