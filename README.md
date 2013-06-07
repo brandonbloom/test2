@@ -89,6 +89,16 @@ With this config:
 
 The `:default` suite is what's run when you don't specify a suite. It defaults to `true`, meaning run every test.
 
+## License
+
+Copyright © 2013 Me.
+
+Distributed under the Eclipse Public License, the same as Clojure.
+
+
+
+
+
 
 
 
