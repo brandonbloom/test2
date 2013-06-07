@@ -1,5 +1,11 @@
 (ns test2.core)
 
+(defn- run-tests [runner reporter test-fns]
+
+  )
+
+;; the following just call (run-tests)
+
 (defn run-all-tests [& {:keys [runner reporter]}]
   )
 
