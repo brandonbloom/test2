@@ -2,6 +2,8 @@
   (:require [clojure.string :as s]
             [test2.api.assertions :refer [report-error report-pass report-fail]]))
 
+(defn -expect [f args results])
+
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
