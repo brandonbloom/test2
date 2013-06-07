@@ -15,13 +15,13 @@ Testing is broken down into the following responsibilities:
   - Reporting the results (Reporter)
 
 
-== Definer
+### Definer
 
 Definers are just helpers to create test-fns. They're optional since
 it's pretty easy to make a test-fn with (defn ^:test some-test [] ...)
 
 
-== Asserters
+### Asserters
 
 During execution of a test-fn, `*test-results*` is a ref to a
 seq. Asserters are helper functions that should take some assertion,
@@ -31,7 +31,7 @@ Note: if an unexpected error occurred (not specified by the
 assertion), the assertion-result's :status should be :error.
 
 
-== Runner
+### Runner
 
 Runners are functions that take a seq of test-fns and return a seq of
 test-results.
@@ -41,7 +41,7 @@ concurrently, or watches for changes and re-runs tests as you save
 your files.
 
 
-== Reporter
+### Reporter
 
 Reporter are functions that take a seq of test-results and do
 something special with them.
@@ -54,14 +54,14 @@ into HTML, or just print dots, or do something fancy like difftest.
 Types
 -----
 
-== test-fn
+### test-fn
 
 Any Clojure function in your project that has a truthy `:test`
 metadata key is a test-fn. If it has a docstring, that will be
 considered its "description" for the reporter.
 
 
-== assertion-result
+### assertion-result
 
 An assertion-result is a Clojure map with these keys and values:
 
@@ -100,7 +100,7 @@ An assertion-result is a Clojure map with these keys and values:
     The args before they were evaluated in the assertion
 
 
-== test-result
+### test-result
 
 A test-result is a Clojure map with these keys and values:
 
