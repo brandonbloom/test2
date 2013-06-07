@@ -37,7 +37,9 @@ assertion), the assertion-result's :status should be :error.
 A Runner is a function that takes a seq of test-fns and runs them. It
 has several responsibilities:
 
-takes a seq of
+takes a seq of test-fns and returns lazy seq of test-results
+
+responsible for filtering
 
 A function that takes a seq of
 
