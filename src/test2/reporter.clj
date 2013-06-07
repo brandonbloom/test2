@@ -1,4 +1,4 @@
 (ns test2.reporter)
 
-(defn default-runner [test-fns]
+(defn default-reporter [test-fns]
   )
