@@ -47,7 +47,7 @@ Then run them:
 $ lein test2
 ```
 
-Or in Clojure:
+Or, in Clojure:
 
 ```clojure
 (use 'test2.core)
