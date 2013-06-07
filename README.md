@@ -54,8 +54,7 @@ $ lein test2
 Your `project.clj` file can have a `:test2` key to a map of options. Currently it takes `:runner` and `:reporter` which are symbols pointing to functions which conform to the [SPEC](SPEC.md).
 
 ```clojure
-:test2 {:runner fancy-runner.core/some-runner-fn
-        :reporter fancy-reporter.core/some-reporter-fn}
+:test2 {:runner test2.runner/randomized-runner}
 ```
 
 ### Test suites
