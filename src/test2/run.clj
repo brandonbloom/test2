@@ -24,10 +24,10 @@
 (defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
 
-  If namespaces (syms) is given, only find tests in them. Otherwise,
+  With :namespaces (seq of syms), only find tests in them. Otherwise,
   find tests in all namespaces in current project.
 
-  If matcher is given, only run tests passing (matcher test-metadata)"
+  With :matcher, only run test-fns where (matcher (meta test-fn))"
   [& {:keys [runner reporter namespaces matcher]}]
   (let [runner (or runner (default-runner))
         reporter (or reporter (default-reporter))
