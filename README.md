@@ -1,8 +1,6 @@
 # test2
 
-Test2 is a modular testing lib for Clojure.
-
-Intended as the successor of clojure.test, test2 was designed by the same people behind leiningen, clojurescript, core.match, and core.logic.
+Test2 is a modular testing lib for Clojure. Intended as the successor of clojure.test, test2 was designed by the same people behind leiningen, clojurescript, core.match, and core.logic.
 
 The major feature is its [SPEC](SPEC.md) (like ring-clojure), allowing different parts to be changed out for alternatives without having to switch to another lib entirely.
 
