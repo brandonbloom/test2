@@ -30,6 +30,7 @@ Define some tests:
 
 ```clojure
 (use 'test2.expect)
+(use 'test2.def)
 
 (defn ^:test user-creation
   "Creating users adds them to the list, but they're disabled by default." []
