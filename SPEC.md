@@ -80,10 +80,6 @@ Type: Map
   (Optional, String)
   Used by the reporter to describe the assertion
 
-:exception
-  (Required when status is :error, Exception)
-  The exception that unexpectedly occurred
-
 :file
   (Required, String)
   The file the assertion was in.
@@ -91,6 +87,10 @@ Type: Map
 :line
   (Required, Number)
   The line the assertion was on.
+
+:exception
+  (Required when status is :error, Exception)
+  The exception that unexpectedly occurred
 
 :failure-details
   (Required when status is :fail, Map)
