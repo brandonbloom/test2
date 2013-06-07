@@ -33,4 +33,5 @@
 (defn run-matching-tests
   "Runs only tests whose metadata passes (f metadata)"
   [f & {:keys [runner reporter]}]
-  (run-tests runner reporter (filter f (find-test-fns))))
+  (run-tests runner reporter (filter f ;; crap, this is not right. needs to pass meta not just var
+                                     (find-test-fns))))
