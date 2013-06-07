@@ -18,6 +18,11 @@ Copy/paste as needed into your project.clj:
 [lein-difftest "2.0.0"]      ;; in :plugins
 ```
 
+## Documentation
+
+* [Wiki](https://github.com/evanescence/test2/wiki)
+* [API Docs](http://evanescence.github.com/test2)
+
 ## Usage
 
 ### Example tests
