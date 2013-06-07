@@ -65,6 +65,7 @@ considered its "description" for the reporter.
 
 An assertion-result is a Clojure map with these keys and values:
 
+```
 :status
   (Required, Keyword)
   :pass if the test passed
@@ -98,12 +99,13 @@ An assertion-result is a Clojure map with these keys and values:
     :raw-args
     (Required, seq of raw forms)
     The args before they were evaluated in the assertion
-
+```
 
 ### test-result
 
 A test-result is a Clojure map with these keys and values:
 
+```
 :results
   (Required, seq of assertion-results)
   Results of every assertion in the function.
@@ -111,3 +113,4 @@ A test-result is a Clojure map with these keys and values:
 :test
   (Required, Var)
   The test-fn's var.
+```
