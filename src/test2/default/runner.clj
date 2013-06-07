@@ -1,4 +1,5 @@
-(ns test2.default.runner)
+(ns test2.default.runner
+  (:require [test2.runners :refer [run-test-fn]]))
 
 (defn default-runner
   "Runs all tests in linear order."
