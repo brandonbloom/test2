@@ -17,12 +17,13 @@
   )
 
 (defn run-matching-tests
-  "Runs only tests whose metadata passes (f)"
+  "Runs only tests whose metadata passes (f metadata)"
   [f & {:keys [runner reporter]}]
+
   )
 
-(defn run-tests-in-suite
-  "Runs only tests in the named suite."
-  [suite & {:keys [runner reporter]}]
-  ;; lookup suite fn, and call run-matching-tests with it.
-  )
+;; (defn run-tests-in-suite
+;;   "Runs only tests in the named suite."
+;;   [suite & {:keys [runner reporter]}]
+;;   ;; lookup suite fn, and call run-matching-tests with it.
+;;   )
