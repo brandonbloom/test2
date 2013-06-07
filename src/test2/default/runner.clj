@@ -1,4 +1,5 @@
 (ns test2.default.runner
+  "The default test-runner used if none is specified."
   (:require [test2.api.runners :refer [run-test-fn]]))
 
 (defn default-runner
