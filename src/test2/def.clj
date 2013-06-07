@@ -2,7 +2,8 @@
   (:require [clojure.string :as s]))
 
 (defmacro deftest
-  "Shortcut for (defn ^:test fn-name ...)"
+  "Shortcut for (defn ^:test fn-name ...)
+  Optional docstrings are respected."
   [fn-name & body]
   (let [[docstring body] (if (string? (first body))
                            [(first body) (rest body)]
@@ -11,7 +12,7 @@
        ~@body)))
 
 (defmacro defspec
-  "Like deftest, but auto-generates the fn-name for you based on the docstring."
+  "Like deftest, but the fn-name is generated for you."
   [docstring & body]
   (let [fn-name (-> docstring
                     (s/lower-case)
