@@ -20,6 +20,5 @@
                     (s/replace " " "-")
                     (s/replace #"[^a-z-]" "")
                     (symbol))]
-    (prn fn-name)
     `(defn ~(with-meta fn-name {:doc docstring}) []
        ~@body)))
