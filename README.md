@@ -29,7 +29,7 @@ Copy/paste as needed into your project.clj:
 Define some tests:
 
 ```clojure
-(use 'test2.core)
+(use 'test2.expect)
 
 (defn ^:test user-creation
   "Creating users adds them to the list, but they're disabled by default." []
