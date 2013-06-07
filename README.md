@@ -1,22 +1,18 @@
 # test2
 
-Test2 is a modular testing lib for Clojure.
+Test2 is a modular testing lib for Clojure. It was designed by the people who created leiningen, ring, and compojure to be the successor of clojure.test.
 
-It has a ring-like [SPEC](SPEC.md), so that different parts can be changed out for alternatives.
+The major feature is its ring-like [SPEC](SPEC.md), allowing different parts to be changed out for alternatives without having to switch to another lib entirely.
 
-Specifically, this lib splits tests into: test definers, assertion functions, test runners, and test-result reporters.
-
-For example, if you want a different reporter function, you can write one, or use a third-party reporter lib, as long as it conforms to this spec.
-
-Coming from clojure.test? Midje? Speclj? [Read here](#benefits-over-other-libs) to see how test2 can help you.
+Coming from clojure.test, midje, or speclj? Read on about test2's [benefits over other libs](#benefits-over-other-libs).
 
 ## Install
 
 Copy/paste as needed into your project.clj:
 
 ```clojure
-[test2 "1.0.0"]              ;; in :dependencies
-[lein-difftest "2.0.0"]      ;; in :plugins
+[test2 "1.0.0"]              ;; in dependencies
+[lein-difftest "2.0.0"]      ;; in plugins
 ```
 
 ## Documentation
