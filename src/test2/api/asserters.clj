@@ -24,7 +24,7 @@
 
 (defmacro with-exception-reporter
   "Reports any unexpected exceptions that occur within body.
-  Useful when writing asserters."
+  Useful when writing asserters. f and args are raw forms."
   [f args & body]
   `(try
      ~@body

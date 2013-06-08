@@ -6,7 +6,7 @@
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
-  `(with-exception-reporter '~f '~args
+  `(with-exception-reporter ~f ~args
      (let [file-pos# (file-and-line (new java.lang.Throwable) 0)
            args# [~@args]
            result# (apply ~f args#)]

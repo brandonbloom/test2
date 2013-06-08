@@ -24,8 +24,8 @@
         (is (.contains s "     Got: false"))
 
         (is (.contains s "In failing_test.clj at line 20"))
-        (is (.contains s "   ERROR: (empty? [1 2 (+ 1 2)])"))
-        (is (.contains s "     Got: ArithmaticException"))
+        (is (.contains s "   ERROR: (empty? (/ 1 0))"))
+        (is (.contains s "     Got: java.lang.ArithmeticException: Divide by zero"))
 
         (is (.contains s "6 failures, 1 errors"))
         (is (= @exit-code 1)))
