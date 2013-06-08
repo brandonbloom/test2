@@ -9,7 +9,7 @@
   [test-results]
   (let [failed? (not (empty? (:fail (group-by :status (mapcat :results test-results)))))]
     (if failed?
-      (println "FAIL"))
+      (println "FAIL\n"))
     (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
                      1
                      2

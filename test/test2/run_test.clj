@@ -16,10 +16,14 @@
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
         (is (.contains s "FAIL"))
+        (is (.contains s "Ran 3 tests containing 7 assertions"))
+        (is (.contains s "6 failures, 0 errors"))
         (is (= @exit-code 1)))
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.passing-test]))]
         (is (not (.contains s "FAIL")))
+        (is (.contains s "Ran 1 tests containing 1 assertions"))
+        (is (.contains s "0 failures, 0 errors"))
         (is (= @exit-code 0))))))
 
 (defn test-ns-hook []
