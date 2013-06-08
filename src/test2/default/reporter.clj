@@ -12,7 +12,11 @@
 (defn- default-reporter
   "Prints failures/errors and summary. Optionally colorizes the text."
   [test-results colorize?]
-  (let [assertion-results (mapcat test->assertions test-results)
+  (let [red-color    (colorize? (str (char 27) "[31m;") "")
+        green-color  (colorize? (str (char 27) "[32m;") "")
+        yellow-color (colorize? (str (char 27) "[33m;") "")
+        reset-color  (colorize? (str (char 27) "[0m;")  "")
+        assertion-results (mapcat test->assertions test-results)
         groups (group-by :status assertion-results)
         failures (:fail groups)
         errors (:error groups)
@@ -20,23 +24,25 @@
                      (not (empty? errors)))]
     (doseq [failure failures]
       (println (format "In %s at line %s" (:file failure) (:line failure)))
-      (println (format "    FAIL: (%s %s)" (:fn failure) (apply str (interpose " " (:raw-args failure)))))
+      (println (format "    %sFAIL%s: (%s %s)" yellow-color (:fn failure) (apply str (interpose " " (:raw-args failure))) reset-color))
       (println (format "Expected: (%s %s)" (:fn failure) (apply str (interpose " " (:args failure)))))
       (println (format "     Got: %s" (:result failure)))
       (println))
     (doseq [error errors]
       (println (format "In %s at line %s" (:file error) (:line error)))
-      (println (format "   ERROR: (%s %s)" (:fn error) (apply str (interpose " " (:raw-args error)))))
+      (println (format "   %sERROR%s: (%s %s)" red-color (:fn error) (apply str (interpose " " (:raw-args error))) reset-color))
       (println (format "     Got: %s" (:exception error)))
       (println))
     (if problem?
-      (println "TEST FAILED\n")
-      (println "TEST PASSED\n"))
-    (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
+      (println (format "%sTEST FAILED%s\n" red-color reset-color))
+      (println (format "%sTEST PASSED%s\n" green-color reset-color)))
+    (println (format "%sRan %s tests containing %s assertions.\n%s failures, %s errors.%s"
+                     (if problem? red-color green-color)
                      (count test-results)
                      (count assertion-results)
                      (count (:fail groups))
-                     (count (:error groups))))
+                     (count (:error groups))
+                     reset-color))
     (exit-with-code (if problem? 1 0))))
 
 (defn plain-reporter
