@@ -20,5 +20,6 @@
                                 :raw-args (vec '~args)
                                 :args args#}))))))
 
-(def ^{:doc "Nicer way of saying identity"}
-  truthy? identity)
+(def truthy?
+  "Nicer way of saying identity"
+  identity)
