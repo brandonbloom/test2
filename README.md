@@ -57,6 +57,8 @@ To run them:
 $ lein test2
 ```
 
+The default runner and reporter are very plain, but test2 comes with some alternatives, such as a reporter that prints in terminal-formatted color, and a runner that runs test in random order.
+
 See the [wiki](https://github.com/evanescence/test2/wiki) for more details.
 
 <!-- Or, in Clojure: -->
