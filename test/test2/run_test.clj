@@ -17,6 +17,7 @@
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
         (is (.contains s "FAIL"))
         (is (.contains s "Ran 3 tests containing 7 assertions"))
+        (is (.contains s "You did something wrong. It's not my fault. I'm covering my ears. LA LAL A LA LA LA I CANT HEAR YOU LALALALALALAL"))
         (is (.contains s "6 failures, 0 errors"))
         (is (= @exit-code 1)))
       (let [s (with-out-str
