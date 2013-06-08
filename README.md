@@ -34,7 +34,7 @@ Copy/paste as needed into your project.clj:
 
 ## Usage
 
-There's plenty of ways to [Define Tests](../../wiki/Home#defining-tests) and [Make Assertions](../../wiki/Home#making-assertions). Choose whichever you prefer best. Or write your own if you feel like it.
+There's plenty of ways to [Define Tests](../../wiki/Home#defining-tests) and [Make Assertions](../../wiki/Home#making-assertions). Choose whichever you prefer best.
 
 
 
