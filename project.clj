@@ -1,4 +1,4 @@
-(defproject test2 "1.1.0"
+(defproject test2 "1.2.0-SNAPSHOT"
   :description "Composable testing lib for Clojure"
   :url "https://github.com/evanescence/test2"
   :license {:name "Eclipse Public License"

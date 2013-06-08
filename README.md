@@ -52,6 +52,18 @@ The default runner and reporter are very plain, but test2 comes with some altern
 
 See the [Extensions](../../wiki/Home#extensions) section of the wiki for a comprehensive list.
 
+## Change Log
+
+* HEAD
+  * Moved test2.transition to test2.mimic.clojure-test
+  <!-- * Created test2.mimic.speclj -->
+  <!-- * Created test2.mimic.midje -->
+
+* 1.1
+  * First public release
+
+See the [Extensions](../../wiki/Home#extensions) section of the wiki for a comprehensive list.
+
 ## License
 
 Copyright © 2013 evanescence
