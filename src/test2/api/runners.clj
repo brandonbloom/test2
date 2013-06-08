@@ -27,3 +27,8 @@
   (mapcat test-fns-in-ns
           (or namespaces-syms
               (b/namespaces-on-classpath :classpath "src:test:spec"))))
+
+(defn test-fn-passes-matcher? [matcher-fn test-fn]
+  (if matcher-fn
+    ((comp matcher-fn meta) test-fn)
+    true))
