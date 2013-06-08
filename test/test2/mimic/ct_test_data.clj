@@ -14,3 +14,5 @@
   (print "f2 "))
 
 (ct/use-fixtures :once f1 f2)
+
+(defn test-ns-hook [])
