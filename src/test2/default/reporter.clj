@@ -7,29 +7,14 @@
 (defn default-reporter
   "Prints only failures. Doesn't colorize the text."
   [test-results]
-  (let [failed? (not (empty? (:fail (group-by :status (mapcat :results test-results)))))]
+  (let [assertion-results (mapcat :results test-results)
+        groups (group-by :status assertion-results)
+        failed? (not (empty? (:fail groups)))]
     (if failed?
       (println "FAIL\n"))
     (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
-                     1
-                     2
-                     3
-                     4
-                     ))
-    (exit-with-code (if failed? 1 0)))
-
-
-
-  ;; (let [failures (group-by :status test-results)]
-  ;;   (doseq [failure failures]
-  ;;     (println (format "FAIL in %s at line %s\n"
-  ;;                      (:file failure)
-  ;;                      (:line failure))
-  ;;              (format " Expected: %s"
-  ;;                      (:file failure)
-  ;;                      (:line failure)))
-
-  ;;     )
-
-  ;;   )
-  )
+                     (count test-results)
+                     (count assertion-results)
+                     (count (:fail groups))
+                     (count (:error groups))))
+    (exit-with-code (if failed? 1 0))))
