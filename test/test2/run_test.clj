@@ -2,7 +2,7 @@
   (:require [clojure.test :refer :all]
             [test2.fake-test]
             [test2.run]
-            [test2.default.reporter :refer [exit-with-code]]))
+            [test2.default.reporter :as r]))
 
 (deftest testing-test-fns-in-ns
   (let [fns (#'test2.run/test-fns-in-ns 'test2.fake-test)]
@@ -12,7 +12,7 @@
 
 (deftest testing-running-high-level
   (let [exit-code (ref nil)]
-    (with-redefs [exit-with-code #(dosync (ref-set exit-code %))]
+    (with-redefs [r/exit-with-code #(dosync (ref-set exit-code %))]
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
         (is (.contains s "TEST FAILED"))

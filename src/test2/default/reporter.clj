@@ -1,17 +1,17 @@
 (ns test2.default.reporter
   "Some built-in test-reporters.")
 
-(defn exit-with-code [code]
+(defn- exit-with-code [code]
   (System/exit code))
 
-(defn test->assertions [test-result]
+(defn- test->assertions [test-result]
   (let [t (:test test-result)]
     (for [assertion-result (:results test-result)]
       (assoc assertion-result :test t))))
 
-(defn default-reporter
-  "Prints only failures. Doesn't colorize the text."
-  [test-results]
+(defn- default-reporter
+  "Prints failures/errors and summary. Optionally colorizes the text."
+  [test-results colorize?]
   (let [assertion-results (mapcat test->assertions test-results)
         groups (group-by :status assertion-results)
         failures (:fail groups)
@@ -38,3 +38,13 @@
                      (count (:fail groups))
                      (count (:error groups))))
     (exit-with-code (if problem? 1 0))))
+
+(defn plain-reporter
+  "Prints failures/errors and summary. Doesn't colorize the text."
+  [test-results]
+  (default-reporter test-results false))
+
+(defn colorized-reporter
+  "Prints failures/errors and summary. Colorizes text for terminals."
+  [test-results]
+  (default-reporter test-results true))

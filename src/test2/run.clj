@@ -2,7 +2,7 @@
   "Entry point for running tests via code (i.e. in the REPL)."
   (:require [bultitude.core :as b]
             [test2.default.runner :refer [default-runner]]
-            [test2.default.reporter :refer [default-reporter]]))
+            [test2.default.reporter :refer [plain-reporter]]))
 
 (defn- test-fns-in-ns
   "Given a ns-symbol, return a seq of test-fns."
@@ -30,7 +30,7 @@
   With :matcher, only run test-fns where (matcher (meta test-fn))"
   [& {:keys [runner reporter namespaces matcher]}]
   (let [runner (or runner default-runner)
-        reporter (or reporter default-reporter)
+        reporter (or reporter plain-reporter)
         test-fns (find-test-fns namespaces)
         test-fns (if matcher
                    (filter (comp matcher meta) test-fns)
