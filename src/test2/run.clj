@@ -1,25 +1,7 @@
 (ns test2.run
   "Entry point for running tests via code (i.e. in the REPL)."
-  (:require [bultitude.core :as b]
-            [test2.default.runner :refer [linear-runner]]
+  (:require [test2.default.runner :refer [linear-runner]]
             [test2.default.reporter :refer [plain-reporter]]))
-
-(defn- test-fns-in-ns
-  "Given a ns-symbol, return a seq of test-fns."
-  [ns]
-  (require :reload ns)
-  (->> ns
-       (ns-publics)
-       (vals)
-       (filter (comp :test meta))))
-
-(defn- find-test-fns
-  "Given namespace-syms, returns seq of test-fns.
-  If nil, uses all namespaces in your project."
-  [namespaces-syms]
-  (mapcat test-fns-in-ns
-          (or namespaces-syms
-              (b/namespaces-on-classpath :classpath "src:test:spec"))))
 
 (defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
@@ -30,13 +12,8 @@
   With :matcher, only run test-fns where (matcher (meta test-fn))"
   [& {:keys [runner reporter namespaces matcher]}]
   (let [runner (or runner linear-runner)
-        reporter (or reporter plain-reporter)
-        test-fns (find-test-fns namespaces)
-        test-fns (if matcher
-                   (filter (comp matcher meta) test-fns)
-                   test-fns)]
-    (-> test-fns
-        (runner)
+        reporter (or reporter plain-reporter)]
+    (-> (runner namespaces matcher)
         (reporter))))
 
 (defn -main

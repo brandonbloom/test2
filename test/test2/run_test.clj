@@ -5,7 +5,7 @@
             [test2.default.reporter :as r]))
 
 (deftest testing-test-fns-in-ns
-  (let [fns (#'test2.run/test-fns-in-ns 'test2.fake-test)]
+  (let [fns (#'test2.api.runners/test-fns-in-ns 'test2.fake-test)]
     (is (= #{#'test2.fake-test/fake-test-1
              #'test2.fake-test/fake-test-3}
            (set fns)))))
