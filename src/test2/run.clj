@@ -25,14 +25,8 @@
   Returns nil if s is nil."
   [s]
   (when s
-    (-> s
-        (symbol)
-        (namespace)
-        (symbol)
-        (require))
-    (-> s
-        (symbol)
-        (resolve))))
+    (-> s symbol namespace symbol require)
+    (-> s symbol resolve)))
 
 (defn -main
   "Entry point for running via command line."
