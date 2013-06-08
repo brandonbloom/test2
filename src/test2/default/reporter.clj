@@ -27,18 +27,3 @@
                      (count (:fail groups))
                      (count (:error groups))))
     (exit-with-code (if failed? 1 0))))
-
-
-;; (def data-in
-;;   [{:name "Bob"
-;;     :cards [{:id 1}
-;;             {:id 2}]}
-;;    {:name "Jack"
-;;     :cards [{:id 3}
-;;             {:id 4}]}])
-
-;; (def data-out
-;;   [{:id 1 :name "Bob"}
-;;    {:id 2 :name "Bob"}
-;;    {:id 3 :name "Jack"}
-;;    {:id 4 :name "Jack"}])
