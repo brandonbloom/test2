@@ -44,15 +44,9 @@ $ lein test2
 
 The default runner and reporter are very plain, but test2 comes with some alternatives, such as a reporter that prints in terminal-formatted color, and a runner that runs test in random order.
 
-## Notable Extensions
+## Extensions
 
-* [test2-rspec](#) - Provides definers and asserters similar to RSpec / Speclj.
-* [test2-midje](#) - Provides similar functions to Midje's `facts`/`fact`.
-* [test2-autorunner](#) - Watches your files and re-runs tests when something changes.
-* [test2-async-runner](#) - Runs tests concurrently.
-* [test2-difftest](#) - Reports tests using a diff-style format.
-
-See the [Third Party Extensions](../../wiki/Home#third-party-extensions) section of the wiki for a comprehensive list.
+See the [Extensions](../../wiki/Home#extensions) section of the wiki for a comprehensive list.
 
 ## License
 
