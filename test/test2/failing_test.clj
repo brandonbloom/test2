@@ -12,7 +12,7 @@
 
 (defn ^:test real-test-3 []
   (expect empty? [1 2 3])
-  (expect empty? [1 2])
+  (expect = 1 2)
   (expect empty? [1])
   (expect empty? []))
 

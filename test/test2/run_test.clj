@@ -18,6 +18,9 @@
         (is (.contains s "TEST FAILED"))
         (is (.contains s "Ran 4 tests containing 8 assertions"))
 
+        (is (.contains s "    FAIL: (= 1 2)"))
+        (is (.contains s "Expected: (= 1 2)"))
+
         (is (.contains s "In failing_test.clj at line 7"))
         (is (.contains s "    FAIL: (empty? [1 2 (+ 1 2)])"))
         (is (.contains s "Expected: (empty? [1 2 3])"))

@@ -20,12 +20,12 @@
                      (not (empty? errors)))]
     (doseq [failure failures]
       (println (format "In %s at line %s" (:file failure) (:line failure)))
-      (println (format "    FAIL: (%s %s)" (:fn failure) (apply str (:raw-args failure))))
-      (println (format "Expected: (%s %s)" (:fn failure) (apply str (:args failure))))
+      (println (format "    FAIL: (%s %s)" (:fn failure) (apply str (interpose " " (:raw-args failure)))))
+      (println (format "Expected: (%s %s)" (:fn failure) (apply str (interpose " " (:args failure)))))
       (println (format "     Got: %s" (:result failure))))
     (doseq [error errors]
       (println (format "In %s at line %s" (:file error) (:line error)))
-      (println (format "   ERROR: (%s %s)" (:fn error) (apply str (:raw-args error))))
+      (println (format "   ERROR: (%s %s)" (:fn error) (apply str (interpose " " (:raw-args error)))))
       (println (format "     Got: %s" (:exception error))))
     (if problem?
       (println "\nTEST FAILED\n"))
