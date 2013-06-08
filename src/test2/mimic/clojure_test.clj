@@ -18,7 +18,7 @@
   [string & body]
   `(do ~@body))
 
-(defmacro use-fixtures
-  "Combines tests using clojure.test/use-fixtures syntax"
-  [& args]
-  )
+;; (defmacro use-fixtures
+;;   "Combines tests using clojure.test/use-fixtures syntax"
+;;   [& args]
+;;   )
