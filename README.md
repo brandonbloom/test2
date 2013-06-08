@@ -10,7 +10,7 @@ The other day, I started a new project and wanted to write some tests. But I kep
 
 This aims to solve that problem for anyone needing a Clojure test lib. You might want to swap out your runner, or your reporter, or your definer, or your asserters. But you don't have to change testing libs just to do it. You just add a lib to yor project, *that's all*.
 
-The goal is that, even if this lib ends up stable and inside leiningen or something, you can extend it from the outside to do what you want without having to switch to another lib.
+The goal is that, even if this lib ends up stable and inside leiningen or something, you can extend it from the outside to do what you want without having to switch to another lib and rewrite all your tests.
 
 
 ## Install
