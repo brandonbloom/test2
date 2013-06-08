@@ -41,6 +41,8 @@ assertion), the assertion-result's :status should be :error.
 
 ### Runner
 
+Signature: (runner ns-syms matcher-fn) => test-results
+
 Runners are functions that take in user-options and return a seq of
 test-results.
 
@@ -55,12 +57,17 @@ If matcher-fn is nil, run all found tests. Otherwise, call the
 function on each test-fn's metadata, and only run tests for which this
 passes.
 
+There are helpers available in `test2.api.runners` to make it easy to
+find test-fns and turn them into test-results.
+
 Runners are what you'd write if you want to make a lib that runs test
 concurrently, or watches for changes and re-runs tests as you save
 your files.
 
 
 ### Reporter
+
+Signature: (reporter test-results)
 
 Reporter are functions that take a seq of test-results and do
 something special with them.
