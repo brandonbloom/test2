@@ -28,7 +28,10 @@
           (or namespaces-syms
               (b/namespaces-on-classpath :classpath "src:test:spec"))))
 
-(defn test-fn-passes-matcher? [matcher-fn test-fn]
+(defn test-fn-passes-matcher?
+  "Truthy if the test-fn's metadata passes matcher-fn.
+  Returns true for nil matcher-fns."
+  [matcher-fn test-fn]
   (if matcher-fn
     ((comp matcher-fn meta) test-fn)
     true))
