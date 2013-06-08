@@ -3,7 +3,7 @@
   (:require [clojure.string :as s]))
 
 (defmacro deftest
-  "Shortcut for (defn ^:test fn-name ...)
+  "Shortcut for (defn ^:test fn-name [] body ...)
   Optional docstrings are respected."
   [fn-name & body]
   (let [[docstring body] (if (string? (first body))
