@@ -34,22 +34,24 @@ Copy/paste as needed into your project.clj:
 
 ## Usage
 
-Define some tests:
+There's plenty of ways to [Define Tests](../../wiki/Home#defining-tests) and [Make Assertions](../../wiki/Home#making-assertions). Choose whichever you prefer best. Or write your own if you feel like it.
 
-```clojure
-(use 'test2.expect)
 
-(defn ^:test user-creation
-  "Creating users adds them to the list, but they're disabled by default." []
-  (expect empty? (all-users))
-  (create-user "bob")
-  (expect = 1 (count (all-users)))
-  (expect truthy? (:disabled (first (all-users)))))
-```
 
-Read more about [Defining Tests](../../wiki/Home#defining-tests).
+<!-- ```clojure -->
+<!-- (use 'test2.expect) -->
 
-Then run them:
+<!-- (defn ^:test user-creation -->
+<!--   "Creating users adds them to the list, but they're disabled by default." [] -->
+<!--   (expect empty? (all-users)) -->
+<!--   (create-user "bob") -->
+<!--   (expect = 1 (count (all-users))) -->
+<!--   (expect truthy? (:disabled (first (all-users))))) -->
+<!-- ``` -->
+
+
+
+To run them:
 
 ```bash
 $ lein test2
@@ -66,7 +68,9 @@ Or, in Clojure:
 (run-tests :matching #(-> % :name name (.startsWith "users")))
 ```
 
-When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line options](../../wiki/Home#command-line-options).
+
+
+<!-- When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line options](../../wiki/Home#command-line-options). -->
 
 ## Notable Extensions
 
