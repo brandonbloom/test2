@@ -77,11 +77,15 @@ Signature: `(reporter test-results) => pass?`
 Reporter are functions that take a seq of test-results and do
 something special with them.
 
-This is what you'd write if you want to turn a test suite's results
-into HTML, or just print dots, or do something fancy like difftest.
+For a given test-fn, the reporter should consider its docstring to be
+the description of the test. If the test-fn has no docstring, the
+reporter may use the test-fn's name itself.
 
 The reporter must NOT exit the test. It should return truthy or falsy
 depending on if all tests passed or any failed/errored, respectively.
+
+This is what you'd write if you want to turn a test suite's results
+into HTML, or just print dots, or do something fancy like difftest.
 
 
 
