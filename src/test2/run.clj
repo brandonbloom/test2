@@ -6,6 +6,14 @@
 (defn- exit-with-code [code]
   (System/exit code))
 
+(defn- var-for
+  "Given \"foo.bar/baz\", returns a var, requiring 'foo.bar first.
+  Returns nil if s is nil."
+  [s]
+  (when s
+    (-> s symbol namespace symbol require)
+    (-> s symbol resolve)))
+
 (defn run-tests
   "Runner and reporter are optional fns conforming to the SPEC.
 
@@ -19,14 +27,6 @@
         pass? (runner reporter namespaces matcher)
         exit-code (if pass? 0 1)]
     (exit-with-code exit-code)))
-
-(defn- var-for
-  "Given \"foo.bar/baz\", returns a var, requiring 'foo.bar first.
-  Returns nil if s is nil."
-  [s]
-  (when s
-    (-> s symbol namespace symbol require)
-    (-> s symbol resolve)))
 
 (defn -main
   "Entry point for running via command line."
