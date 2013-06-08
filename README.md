@@ -4,6 +4,17 @@ Test2 is a modular testing lib for Clojure.
 
 The major feature is its [SPEC](SPEC.md) (like ring-clojure), which allows you to change out individual parts for alternatives, like the test-runner, test-reporter, and assertion functions, without having to switch to another testing lib.
 
+## Rationale
+
+For 2 or 3 days, I was struggling to choose whether to use clojure.test, midje, speclj, or expectations.
+
+And each had some feature I really needed but was lacking all the others I also need. This aims to solve that problem for everyone, in terms of test libs.
+
+You might want to swap out your runner, or your reporter, or your definer, or your asserters. But you don't have to change testing libs just to do it.
+
+You just add a new dep to yor project, that's all.
+
+
 ## Install
 
 Copy/paste as needed into your project.clj:
