@@ -25,10 +25,12 @@
 (defmacro with-exception-reporter
   "Reports any unexpected exceptions that occur within body.
   Useful when writing asserters."
-  [& body]
+  [f args & body]
   `(try
      ~@body
      (catch Exception e#
        (add-to-report (merge (file-and-line e# 2)
                              {:status :error
+                              :fn '~f
+                              :raw-args (vec '~args)
                               :exception e#})))))

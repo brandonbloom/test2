@@ -23,10 +23,10 @@
       (is (= {:status :fail
               :file "assert_test.clj"
               :line 8
-              :failure-details {:result false
-                                :fn 'empty?
-                                :args [[1 2 3]]
-                                :raw-args '[[1 2 (+ 1 2)]]}}
+              :result false
+              :fn 'empty?
+              :args [[1 2 3]]
+              :raw-args '[[1 2 (+ 1 2)]]}
              r2))
       (is (= :error (:status r3)))
       (is (= "assert_test.clj" (:file r3)))

@@ -6,7 +6,7 @@
 (defmacro expect
   "Runs (apply f args) and reports on the result."
   [f & args]
-  `(with-exception-reporter
+  `(with-exception-reporter '~f '~args
      (let [file-pos# (file-and-line (new java.lang.Throwable) 0)
            args# [~@args]
            result# (apply ~f args#)]
@@ -15,10 +15,10 @@
                                {:status :pass}))
          (add-to-report (merge file-pos#
                                {:status :fail
-                                :failure-details {:result result#
-                                                  :fn '~f
-                                                  :raw-args (vec '~args)
-                                                  :args args#}}))))))
+                                :result result#
+                                :fn '~f
+                                :raw-args (vec '~args)
+                                :args args#}))))))
 
 (def ^{:doc "Nicer way of saying identity"}
   truthy? identity)
