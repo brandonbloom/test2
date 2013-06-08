@@ -57,16 +57,16 @@ To run them:
 $ lein test2
 ```
 
-Or, in Clojure:
+<!-- Or, in Clojure: -->
 
-```clojure
-(use 'test2.run)
+<!-- ```clojure -->
+<!-- (use 'test2.run) -->
 
-(run-tests) ;; runs all in project
-(run-tests :namespaces ['foobar.test.core 'foobar.test.extra])
-(run-tests :matching :migration)
-(run-tests :matching #(-> % :name name (.startsWith "users")))
-```
+<!-- (run-tests) ;; runs all in project -->
+<!-- (run-tests :namespaces ['foobar.test.core 'foobar.test.extra]) -->
+<!-- (run-tests :matching :migration) -->
+<!-- (run-tests :matching #(-> % :name name (.startsWith "users"))) -->
+<!-- ``` -->
 
 
 
