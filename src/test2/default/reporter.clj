@@ -24,13 +24,13 @@
                      (not (empty? errors)))]
     (doseq [failure failures]
       (println (format "In %s at line %s" (:file failure) (:line failure)))
-      (println (format "    %sFAIL%s: (%s %s)" yellow-color (:fn failure) (apply str (interpose " " (:raw-args failure))) reset-color))
+      (println (format "    %sFAIL%s: (%s %s)" yellow-color reset-color (:fn failure) (apply str (interpose " " (:raw-args failure)))))
       (println (format "Expected: (%s %s)" (:fn failure) (apply str (interpose " " (:args failure)))))
       (println (format "     Got: %s" (:result failure)))
       (println))
     (doseq [error errors]
       (println (format "In %s at line %s" (:file error) (:line error)))
-      (println (format "   %sERROR%s: (%s %s)" red-color (:fn error) (apply str (interpose " " (:raw-args error))) reset-color))
+      (println (format "   %sERROR%s: (%s %s)" red-color reset-color (:fn error) (apply str (interpose " " (:raw-args error)))))
       (println (format "     Got: %s" (:exception error)))
       (println))
     (if problem?
