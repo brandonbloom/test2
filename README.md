@@ -36,19 +36,6 @@ Copy/paste as needed into your project.clj:
 
 There's plenty of ways to [Define Tests](../../wiki/Home#defining-tests) and [Make Assertions](../../wiki/Home#making-assertions). Choose whichever you prefer best.
 
-
-
-<!-- ```clojure -->
-<!-- (use 'test2.expect) -->
-
-<!-- (defn ^:test user-creation -->
-<!--   "Creating users adds them to the list, but they're disabled by default." [] -->
-<!--   (expect empty? (all-users)) -->
-<!--   (create-user "bob") -->
-<!--   (expect = 1 (count (all-users))) -->
-<!--   (expect truthy? (:disabled (first (all-users))))) -->
-<!-- ``` -->
-
 Run them via Leiningen, which takes [some options](../../wiki/Home#command-line-options).
 
 ```bash
