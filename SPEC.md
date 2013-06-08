@@ -75,6 +75,9 @@ something special with them.
 This is what you'd write if you want to turn a test suite's results
 into HTML, or just print dots, or do something fancy like difftest.
 
+The reporter must NOT exit the test. It should return truthy or falsy
+depending on if all tests passed or any failed/errored, respectively.
+
 
 
 Types
