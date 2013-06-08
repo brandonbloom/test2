@@ -2,18 +2,18 @@
   "Some built-in test-runners."
   (:require [test2.api.runners :refer [run-test-fn find-test-fns test-fn-passes-matcher?]]))
 
-(defn- runner [ns-syms matcher-fn order-fn]
-  (map run-test-fn
-       (->> (find-test-fns ns-syms)
-            (filter (partial test-fn-passes-matcher? matcher-fn))
-            (order-fn))))
+(defn- runner [reporter ns-syms matcher-fn sort-test-fns-by]
+  (let [test-fns (->> (find-test-fns ns-syms)
+                      (filter (partial test-fn-passes-matcher? matcher-fn))
+                      (sort-test-fns-by))]
+    (reporter (doall (map run-test-fn test-fns)))))
 
 (defn linear-runner
   "Runs all tests in linear order."
-  [ns-syms matcher-fn]
-  (runner ns-syms matcher-fn identity))
+  [reporter ns-syms matcher-fn]
+  (runner reporter ns-syms matcher-fn identity))
 
 (defn randomized-runner
   "Runs all tests in random order."
-  [ns-syms matcher-fn]
-  (runner ns-syms matcher-fn shuffle))
+  [reporter ns-syms matcher-fn]
+  (runner reporter ns-syms matcher-fn shuffle))

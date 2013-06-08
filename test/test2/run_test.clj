@@ -12,7 +12,7 @@
 
 (deftest testing-running-high-level
   (let [exit-code (ref nil)]
-    (with-redefs [r/exit-with-code #(dosync (ref-set exit-code %))]
+    (with-redefs [test2.run/exit-with-code #(dosync (ref-set exit-code %))]
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
         (is (.contains s "TEST FAILED"))

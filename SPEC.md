@@ -72,7 +72,7 @@ your files.
 
 ### Reporter
 
-Signature: `(reporter test-results)`
+Signature: `(reporter test-results) => pass?`
 
 Reporter are functions that take a seq of test-results and do
 something special with them.

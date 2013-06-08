@@ -1,9 +1,6 @@
 (ns test2.default.reporter
   "Some built-in test-reporters.")
 
-(defn- exit-with-code [code]
-  (System/exit code))
-
 (defn- test->assertions [test-result]
   (let [t (:test test-result)]
     (for [assertion-result (:results test-result)]
@@ -43,7 +40,7 @@
                      (count (:fail groups))
                      (count (:error groups))
                      reset-color))
-    (exit-with-code (if problem? 1 0))))
+    (not problem?)))
 
 (defn plain-reporter
   "Prints failures/errors and summary. Doesn't colorize the text."
