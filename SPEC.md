@@ -1,4 +1,4 @@
-Test2 Spec (1.0)
+Test2 Spec (1.1)
 ================
 
 Overview
