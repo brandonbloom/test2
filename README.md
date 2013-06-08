@@ -6,13 +6,9 @@ The major feature is its [SPEC](SPEC.md) (like ring-clojure), which allows you t
 
 ## Rationale
 
-For 2 or 3 days, I was struggling to choose whether to use clojure.test, midje, speclj, or expectations.
+The other day, I started a new project and wanted to write some tests. But I kept going back and forth between clojure.test, midje, speclj, and expectations (among others). Each one had some feature I really needed, but was lacking all the other features I needed.
 
-And each had some feature I really needed but was lacking all the others I also need. This aims to solve that problem for everyone, in terms of test libs.
-
-You might want to swap out your runner, or your reporter, or your definer, or your asserters.
-
-But you don't have to change testing libs just to do it. You just add a new dep to yor project, that's all.
+This aims to solve that problem for everyone, in terms of test libs. You might want to swap out your runner, or your reporter, or your definer, or your asserters. But you don't have to change testing libs just to do it. You just add a lib to yor project, *that's all*.
 
 
 ## Install
