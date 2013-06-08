@@ -15,6 +15,9 @@ Testing is broken down into the following responsibilities:
   - Reporting the results (Reporter)
 
 
+Roles
+-----
+
 ### Definer
 
 Definers are just helpers to create test-fns. They're not strictly
