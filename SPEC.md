@@ -43,9 +43,9 @@ test-results.
 There are two user-options right now: seq of namespace-syms, and a
 matcher-fn.
 
-If namespace-syms is nil, it's implied that the user wants to find and
-run tests on every namespace within the project. Otherwise, only find
-and run tests within the namespaces.
+If namespace-syms is non-nil, find and run tests only inside these
+namespaces. Otherwise find and run tests on every namespace within the
+project.
 
 If matcher-fn is nil, run all found tests. Otherwise, call the
 function on each test-fn's metadata, and only run tests for which this
