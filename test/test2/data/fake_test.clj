@@ -1,4 +1,4 @@
-(ns test2.fake-test)
+(ns test2.data.fake-test)
 
 (defn test-ns-hook [])
 

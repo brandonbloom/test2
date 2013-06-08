@@ -1,20 +1,20 @@
 (ns test2.run-test
   (:require [clojure.test :refer :all]
-            [test2.fake-test]
+            [test2.data.fake-test]
             [test2.run]
             [test2.default.reporter :as r]))
 
 (deftest testing-test-fns-in-ns
-  (let [fns (#'test2.api.runners/test-fns-in-ns 'test2.fake-test)]
-    (is (= #{#'test2.fake-test/fake-test-1
-             #'test2.fake-test/fake-test-3}
+  (let [fns (#'test2.api.runners/test-fns-in-ns 'test2.data.fake-test)]
+    (is (= #{#'test2.data.fake-test/fake-test-1
+             #'test2.data.fake-test/fake-test-3}
            (set fns)))))
 
 (deftest testing-running-high-level
   (let [exit-code (ref nil)]
     (with-redefs [test2.run/exit-with-code #(dosync (ref-set exit-code %))]
       (let [s (with-out-str
-                (test2.run/run-tests :namespaces ['test2.failing-test]))]
+                (test2.run/run-tests :namespaces ['test2.data.failing-test]))]
         (is (.contains s "TEST FAILED"))
         (is (.contains s "Ran 4 tests containing 8 assertions"))
 
@@ -33,7 +33,7 @@
         (is (.contains s "6 failures, 1 errors"))
         (is (= @exit-code 1)))
       (let [s (with-out-str
-                (test2.run/run-tests :namespaces ['test2.passing-test]))]
+                (test2.run/run-tests :namespaces ['test2.data.passing-test]))]
         (is (not (.contains s "TEST FAILED")))
         (is (not (.contains s "FAIL")))
         (is (.contains s "Ran 1 tests containing 1 assertions"))

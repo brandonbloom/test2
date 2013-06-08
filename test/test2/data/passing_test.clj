@@ -1,4 +1,4 @@
-(ns test2.passing-test
+(ns test2.data.passing-test
   (:require [test2.expect :refer [expect]]))
 
 (defn test-ns-hook [])
