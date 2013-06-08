@@ -17,12 +17,16 @@ Testing is broken down into the following responsibilities:
 
 ### Definer
 
-Definers are just helpers to create test-fns. They're optional since
-it's pretty easy to make a test-fn like this:
+Definers are just helpers to create test-fns. They're not strictly
+necessary, since it's pretty easy to make a test-fn like this:
 
 ```clojure
 (defn ^:test some-test [] ...)
 ```
+
+However, it's possible to get creative and make something as complex
+as RSpec's `describe` and `it` using macros, by `def`ing new vars in
+the namespace that have ^:test.
 
 
 ### Asserters
