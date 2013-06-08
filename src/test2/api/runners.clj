@@ -30,7 +30,7 @@
 
 (defn test-fn-passes-matcher?
   "Truthy if the test-fn's metadata passes matcher-fn.
-  Returns true for nil matcher-fns."
+  Returns true if matcher-fn is nil."
   [matcher-fn test-fn]
   (if matcher-fn
     ((comp matcher-fn meta) test-fn)
