@@ -55,8 +55,9 @@ See the [Extensions](../../wiki/Home#extensions) section of the wiki for a compr
 ## Change Log
 
 * HEAD
-  * Moved test2.transition to test2.mimic.clojure-test
-  <!-- * Created test2.mimic.speclj -->
+  * Renamed `test2.transition` to `test2.mimic.clojure-test`
+  * Implemented `test2.mimic.clojure-test/{is,testing,deftest}`
+  * Created `test2.mimic.speclj`
   <!-- * Created test2.mimic.midje -->
 
 * 1.1
