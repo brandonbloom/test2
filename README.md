@@ -57,6 +57,8 @@ To run them:
 $ lein test2
 ```
 
+See the [wiki](https://github.com/evanescence/test2/wiki) for more details.
+
 <!-- Or, in Clojure: -->
 
 <!-- ```clojure -->
