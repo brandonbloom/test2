@@ -4,19 +4,18 @@
 (defn exit-with-code [code]
   (System/exit code))
 
-(defn test->results [test-result]
+(defn test->assertions [test-result]
   (let [t (:test test-result)]
-    (for [assertion-result (:results test-result)
-          :when (= :fail (:status assertion-result))]
+    (for [assertion-result (:results test-result)]
       (assoc assertion-result :test t))))
 
 (defn default-reporter
   "Prints only failures. Doesn't colorize the text."
   [test-results]
-  (let [assertion-results (mapcat :results test-results)
+  (let [assertion-results (mapcat test->assertions test-results)
         groups (group-by :status assertion-results)
-        failed? (not (empty? (:fail groups)))
-        failures (mapcat test->results test-results)]
+        failures (:fail groups)
+        failed? (not (empty? failures))]
     (doseq [failure failures]
       (let [details (:failure-details failure)]
         (println (format "In %s at line %s"
