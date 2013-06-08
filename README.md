@@ -18,7 +18,7 @@ The goal is that you can extend the lib from the outside to do what you want wit
 Copy/paste as needed into your project.clj:
 
 ```clojure
-:dependencies [[test2 "1.0.0"]]
+:dependencies [[test2 "1.1.0"]]
 :aliases {"test2" ["run" "-m" "test2.run"]}
 ```
 
