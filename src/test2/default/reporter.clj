@@ -30,7 +30,8 @@
       (println (format "     Got: %s" (:exception error)))
       (println))
     (if problem?
-      (println "\nTEST FAILED\n"))
+      (println "TEST FAILED\n")
+      (println "TEST PASSED\n"))
     (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
                      (count test-results)
                      (count assertion-results)
