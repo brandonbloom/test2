@@ -41,13 +41,14 @@ assertion), the assertion-result's :status should be :error.
 
 ### Runner
 
-Signature: `(runner ns-syms matcher-fn) => test-results`
+Signature: `(runner reporter ns-syms matcher-fn) => pass?`
 
-Runners are functions that take in user-options and return a seq of
-test-results.
+Runners are functions that take in a Reporter, some user-given options
+on which tests to run, and are expected to find tests and turn them
+into test-results, and pass these test-results to the Reporter.
 
-There are two user-options right now: seq of namespace-syms, and a
-matcher-fn.
+There are two user-given options right now: a seq of namespace-syms,
+and a matcher-fn.
 
 If namespace-syms is non-nil, find and run tests only inside these
 namespaces. Otherwise find and run tests on every namespace within the
@@ -58,7 +59,11 @@ function on each test-fn's metadata, and only run tests for which this
 passes.
 
 There are helpers available in `test2.api.runners` to make it easy to
-find test-fns and turn them into test-results.
+find test-fns and turn them into test-results suitable for passing
+into the Reporter.
+
+If the Runner returns, its return value's truthiness is used to
+determine whether the test passed or failed.
 
 Runners are what you'd write if you want to make a lib that runs test
 concurrently, or watches for changes and re-runs tests as you save
