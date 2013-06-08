@@ -29,7 +29,7 @@ as RSpec's `describe` and `it` using macros, by `def`ing new vars in
 the namespace that have ^:test.
 
 
-### Asserters
+### Asserter
 
 During execution of a test-fn, `*assertion-results*` is a ref to a
 vec. Asserters are helper functions that should take some assertion,
