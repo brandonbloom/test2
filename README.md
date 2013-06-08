@@ -58,7 +58,7 @@ Or, in Clojure:
 
 When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line options](../../wiki/Home#command-line-options).
 
-## Notable Plugins
+## Notable Extensions
 
 * [test2-rspec](#) - Provides definers and asserters similar to RSpec / Speclj.
 * [test2-midje](#) - Provides similar functions to Midje's `facts`/`fact`.
@@ -66,7 +66,7 @@ When running at the command line, you can choose a different Runner or Reporter.
 * [test2-async-runner](#) - Runs tests concurrently.
 * [test2-difftest](#) - Reports tests using a diff-style format.
 
-See the [Plugins](../../wiki/Home#plugins) section of the wiki for a comprehensive list.
+See the [Third Party Extensions](../../wiki/Home#third-party-extensions) section of the wiki for a comprehensive list.
 
 ## License
 
