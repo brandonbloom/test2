@@ -2,7 +2,11 @@
 
 Test2 is a modular testing lib for Clojure.
 
-The major feature is its [SPEC](SPEC.md) (like ring-clojure), which allows you to change out individual parts for alternatives, like the test-runner, test-reporter, and assertion functions, without having to switch to another testing lib.
+The two major features are its simplicity, and its [SPEC](SPEC.md) (like ring-clojure's spec).
+
+By simplicity, I mean that it builds on basic Clojure concepts instead of inventing its own. For example, tests are just functions with the ^:test metadata. This allows tons of flexibility and creativity in how they can be created.
+
+The SPEC breaks it down into different components, allowing you to change out individual parts for alternatives, including but not limited to the test-runner, test-reporter, and assertion functions, without having to switch to another testing lib.
 
 ## Rationale
 
