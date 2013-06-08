@@ -2,7 +2,7 @@
   "Some built-in test-runners."
   (:require [test2.api.runners :refer [run-test-fn find-test-fns]]))
 
-(defn maybe-apply-matcher-fn [test-fns matcher-fn]
+(defn- maybe-apply-matcher-fn [test-fns matcher-fn]
   (if matcher-fn
     (filter (comp matcher-fn meta) test-fns)
     test-fns))
