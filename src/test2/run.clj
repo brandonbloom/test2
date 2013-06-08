@@ -20,7 +20,7 @@
         exit-code (if pass? 0 1)]
     (exit-with-code exit-code)))
 
-(defn- var-for-sym
+(defn- var-for
   "Given \"foo.bar/baz\", returns a var, requiring 'foo.bar first.
   Returns nil if s is nil."
   [s]
@@ -31,6 +31,6 @@
 (defn -main
   "Entry point for running via command line."
   [& {:strs [-runner -reporter -matcher]}]
-  (run-tests :runner (var-for-sym -runner)
-             :reporter (var-for-sym -reporter)
+  (run-tests :runner (var-for -runner)
+             :reporter (var-for -reporter)
              :matcher (if -matcher (load-string -matcher))))
