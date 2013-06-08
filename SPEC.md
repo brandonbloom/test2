@@ -41,7 +41,7 @@ assertion), the assertion-result's :status should be :error.
 
 ### Runner
 
-Signature: (runner ns-syms matcher-fn) => test-results
+Signature: `(runner ns-syms matcher-fn) => test-results`
 
 Runners are functions that take in user-options and return a seq of
 test-results.
@@ -67,7 +67,7 @@ your files.
 
 ### Reporter
 
-Signature: (reporter test-results)
+Signature: `(reporter test-results)`
 
 Reporter are functions that take a seq of test-results and do
 something special with them.
