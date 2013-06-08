@@ -2,7 +2,7 @@
   "Some built-in test-runners."
   (:require [test2.api.runners :refer [run-test-fn]]))
 
-(defn default-runner
+(defn linear-runner
   "Runs all tests in linear order."
   [test-fns]
   (map run-test-fn test-fns))
