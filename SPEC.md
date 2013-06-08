@@ -63,7 +63,8 @@ find test-fns and turn them into test-results suitable for passing
 into the Reporter.
 
 If the Runner returns, its return value's truthiness is used to
-determine whether the test passed or failed.
+determine whether the test passed or failed, for the process's exit
+code. However, it does not have to return.
 
 Runners are what you'd write if you want to make a lib that runs test
 concurrently, or watches for changes and re-runs tests as you save
