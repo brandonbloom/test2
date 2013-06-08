@@ -49,32 +49,13 @@ There's plenty of ways to [Define Tests](../../wiki/Home#defining-tests) and [Ma
 <!--   (expect truthy? (:disabled (first (all-users))))) -->
 <!-- ``` -->
 
-
-
-To run them:
+Run them via Leiningen, which takes [some options](../../wiki/Home#command-line-options).
 
 ```bash
 $ lein test2
 ```
 
 The default runner and reporter are very plain, but test2 comes with some alternatives, such as a reporter that prints in terminal-formatted color, and a runner that runs test in random order.
-
-See the [wiki](https://github.com/evanescence/test2/wiki) for more details.
-
-<!-- Or, in Clojure: -->
-
-<!-- ```clojure -->
-<!-- (use 'test2.run) -->
-
-<!-- (run-tests) ;; runs all in project -->
-<!-- (run-tests :namespaces ['foobar.test.core 'foobar.test.extra]) -->
-<!-- (run-tests :matching :migration) -->
-<!-- (run-tests :matching #(-> % :name name (.startsWith "users"))) -->
-<!-- ``` -->
-
-
-
-<!-- When running at the command line, you can choose a different Runner or Reporter. And you can pass a matcher function. Read more about it in [Command-line options](../../wiki/Home#command-line-options). -->
 
 ## Notable Extensions
 
