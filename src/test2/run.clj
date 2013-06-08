@@ -20,9 +20,23 @@
         exit-code (if pass? 0 1)]
     (exit-with-code exit-code)))
 
+(defn- var-for-sym
+  "Given \"foo.bar/baz\", returns a var, requiring 'foo.bar first.
+  Returns nil if s is nil."
+  [s]
+  (when s
+    (-> s
+        (symbol)
+        (namespace)
+        (symbol)
+        (require))
+    (-> s
+        (symbol)
+        (resolve))))
+
 (defn -main
   "Entry point for running via command line."
   [& {:strs [-runner -reporter -matcher]}]
-  (run-tests :runner (if -runner (-> -runner symbol resolve))
-             :reporter (if -reporter (-> -reporter symbol resolve))
+  (run-tests :runner (var-for-sym -runner)
+             :reporter (var-for-sym -reporter)
              :matcher (if -matcher (load-string -matcher))))
