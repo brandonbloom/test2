@@ -101,11 +101,11 @@ Type: Map
   The literal callable-form that was used in the assertion
 
 :raw-args
-  (Required, Only for :fail or :error, Seq of raw forms)
+  (Required, Only for :fail or :error, Vector of raw forms)
   The args before they were evaluated in the assertion
 
 :args
-  (Required, Only for :fail, Seq of any types)
+  (Required, Only for :fail, Vector of any types)
   The args after they were evaluated in the assertion
 ```
 
@@ -114,7 +114,7 @@ Type: Map
 
 ```
 :results
-  (Required, seq of assertion-results)
+  (Required, Seq of assertion-results)
   Results of every assertion in the function.
 
 :test
