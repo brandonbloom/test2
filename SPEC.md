@@ -37,10 +37,21 @@ assertion), the assertion-result's :status should be :error.
 
 ### Runner
 
-Runners are functions that take a seq of test-fns and return a seq of
+Runners are functions that take in user-options and return a seq of
 test-results.
 
-This is what you'd write if you want to make a lib that runs test
+There are two user-options right now: seq of namespace-syms, and a
+matcher-fn.
+
+If namespace-syms is nil, it's implied that the user wants to find and
+run tests on every namespace within the project. Otherwise, only find
+and run tests within the namespaces.
+
+If matcher-fn is nil, run all found tests. Otherwise, call the
+function on each test-fn's metadata, and only run tests for which this
+passes.
+
+Runners are what you'd write if you want to make a lib that runs test
 concurrently, or watches for changes and re-runs tests as you save
 your files.
 
