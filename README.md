@@ -29,6 +29,7 @@ Copy/paste as needed into your project.clj:
 
 ## Community
 
+* [Google Group](http://groups.google.com/group/clojure-test2)
 * #clojure on [Freenode](http://freenode.net/) IRC
 
 ## Usage
