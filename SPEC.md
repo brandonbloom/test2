@@ -89,28 +89,24 @@ Type: Map
   The line the assertion was on.
 
 :exception
-  (Required when status is :error, Exception)
+  (Required, Only for :error, Exception)
   The exception that unexpectedly occurred
 
-:failure-details
-  (Required when status is :fail, Map)
-  Has the following keys:
+:result
+  (Required, Only for :fail, Any type)
+  The result of the assertion
 
-    :result
-    (Required, any type)
-    The result of the assertion
+:fn
+  (Required, Only for :fail or :error, Raw form)
+  The literal callable-form that was used in the assertion
 
-    :fn
-    (Required, raw form)
-    The literal callable-form that was used in the assertion
+:raw-args
+  (Required, Only for :fail or :error, Seq of raw forms)
+  The args before they were evaluated in the assertion
 
-    :args
-    (Required, seq of any types)
-    The args after they were evaluated in the assertion
-
-    :raw-args
-    (Required, seq of raw forms)
-    The args before they were evaluated in the assertion
+:args
+  (Required, Only for :fail, Seq of any types)
+  The args after they were evaluated in the assertion
 ```
 
 ### test-result
