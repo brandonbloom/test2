@@ -12,10 +12,10 @@
 (defn- default-reporter
   "Prints failures/errors and summary. Optionally colorizes the text."
   [test-results colorize?]
-  (let [red-color    (if colorize? (str (char 27) "[31m;") "")
-        green-color  (if colorize? (str (char 27) "[32m;") "")
-        yellow-color (if colorize? (str (char 27) "[33m;") "")
-        reset-color  (if colorize? (str (char 27) "[0m;")  "")
+  (let [red-color    (if colorize? (str (char 27) "[1;31m") "")
+        green-color  (if colorize? (str (char 27) "[1;32m") "")
+        yellow-color (if colorize? (str (char 27) "[1;33m") "")
+        reset-color  (if colorize? (str (char 27) "[0m")    "")
         assertion-results (mapcat test->assertions test-results)
         groups (group-by :status assertion-results)
         failures (:fail groups)
