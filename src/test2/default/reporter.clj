@@ -22,11 +22,13 @@
       (println (format "In %s at line %s" (:file failure) (:line failure)))
       (println (format "    FAIL: (%s %s)" (:fn failure) (apply str (interpose " " (:raw-args failure)))))
       (println (format "Expected: (%s %s)" (:fn failure) (apply str (interpose " " (:args failure)))))
-      (println (format "     Got: %s" (:result failure))))
+      (println (format "     Got: %s" (:result failure)))
+      (println))
     (doseq [error errors]
       (println (format "In %s at line %s" (:file error) (:line error)))
       (println (format "   ERROR: (%s %s)" (:fn error) (apply str (interpose " " (:raw-args error)))))
-      (println (format "     Got: %s" (:exception error))))
+      (println (format "     Got: %s" (:exception error)))
+      (println))
     (if problem?
       (println "\nTEST FAILED\n"))
     (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
