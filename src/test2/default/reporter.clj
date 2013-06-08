@@ -15,7 +15,9 @@
   (let [assertion-results (mapcat test->assertions test-results)
         groups (group-by :status assertion-results)
         failures (:fail groups)
-        failed? (not (empty? failures))]
+        errors (:error groups)
+        problem? (and (not (empty? failures))
+                      (not (empty? errors)))]
     (doseq [failure failures]
       (let [details (:failure-details failure)]
         (println (format "In %s at line %s"
@@ -29,11 +31,21 @@
                          (apply str (:args details))))
         (println (format "     Got: %s"
                          (:result details)))))
-    (if failed?
+    (doseq [error errors]
+      (let [details (:failure-details error)]
+        (println (format "In %s at line %s"
+                         (:file error)
+                         (:line error)))
+        (println (format "   ERROR: (%s %s)"
+                         (:fn details)
+                         (apply str (:raw-args details))))
+        (println (format "     Got: %s"
+                         (:exception error)))))
+    (if problem?
       (println "\nTEST FAILED\n"))
     (println (format "Ran %s tests containing %s assertions.\n%s failures, %s errors."
                      (count test-results)
                      (count assertion-results)
                      (count (:fail groups))
                      (count (:error groups))))
-    (exit-with-code (if failed? 1 0))))
+    (exit-with-code (if problem? 1 0))))

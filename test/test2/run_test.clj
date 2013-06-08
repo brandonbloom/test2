@@ -16,14 +16,18 @@
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
         (is (.contains s "TEST FAILED"))
-        (is (.contains s "Ran 3 tests containing 7 assertions"))
+        (is (.contains s "Ran 4 tests containing 8 assertions"))
 
         (is (.contains s "In failing_test.clj at line 7"))
         (is (.contains s "    FAIL: (empty? [1 2 (+ 1 2)])"))
         (is (.contains s "Expected: (empty? [1 2 3])"))
         (is (.contains s "     Got: false"))
 
-        (is (.contains s "6 failures, 0 errors"))
+        (is (.contains s "In failing_test.clj at line 20"))
+        (is (.contains s "   ERROR: (empty? [1 2 (+ 1 2)])"))
+        (is (.contains s "     Got: ArithmaticException"))
+
+        (is (.contains s "6 failures, 1 errors"))
         (is (= @exit-code 1)))
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.passing-test]))]

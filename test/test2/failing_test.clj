@@ -15,3 +15,6 @@
   (expect empty? [1 2])
   (expect empty? [1])
   (expect empty? []))
+
+(defn ^:test real-test-4 []
+  (expect empty? (/ 1 0)))
