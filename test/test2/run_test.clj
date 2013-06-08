@@ -15,13 +15,19 @@
     (with-redefs [exit-with-code #(dosync (ref-set exit-code %))]
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.failing-test]))]
-        (is (.contains s "FAIL"))
+        (is (.contains s "TEST FAILED"))
         (is (.contains s "Ran 3 tests containing 7 assertions"))
-        (is (.contains s "You did something wrong. It's not my fault. I'm covering my ears. LA LAL A LA LA LA I CANT HEAR YOU LALALALALALAL"))
+
+        (is (.contains s "In failing_test.clj at line 7"))
+        (is (.contains s "    FAIL: (empty? [1 2 (+ 1 2)])"))
+        (is (.contains s "Expected: (empty? [1 2 3])"))
+        (is (.contains s "     Got: false"))
+
         (is (.contains s "6 failures, 0 errors"))
         (is (= @exit-code 1)))
       (let [s (with-out-str
                 (test2.run/run-tests :namespaces ['test2.passing-test]))]
+        (is (not (.contains s "TEST FAILED")))
         (is (not (.contains s "FAIL")))
         (is (.contains s "Ran 1 tests containing 1 assertions"))
         (is (.contains s "0 failures, 0 errors"))
