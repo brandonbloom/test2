@@ -6,6 +6,7 @@
 (defmacro describe
   "Just like speclj's describe"
   [name & body]
+  `(do ~@body)
   ;; `(defn ~(with-meta name {:test true}) []
   ;;    ~@body)
   )
@@ -13,6 +14,8 @@
 (defmacro it
   "Just like speclj's it"
   [name & body]
+  `(defn ~(with-meta (symbol name) {:test true}) []
+     ~@body)
   ;; `(ex/expect ~f ~@args)
   )
 
