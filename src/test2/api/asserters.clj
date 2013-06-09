@@ -16,11 +16,12 @@
           conj assertion-result)))
 
 (defn file-and-line
-  "Returns {:file, :line}.
-  Tip: if you don't have an exception, create one."
-  [exception depth]
-  (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
-    {:file (.getFileName s) :line (.getLineNumber s)}))
+  "Returns {:file <string>, :line <number>}"
+  ([exception depth]
+     (let [^StackTraceElement s (nth (.getStackTrace exception) depth)]
+       {:file (.getFileName s) :line (.getLineNumber s)}))
+  ([depth]
+     (file-and-line (new java.lang.Throwable) (inc depth))))
 
 (defmacro with-exception-reporter
   "Reports any unexpected exceptions that occur within body.
