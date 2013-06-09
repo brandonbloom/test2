@@ -10,10 +10,12 @@
 
 (defn add-to-report
   "Adds the assertion-result to *assertions-results* for you."
-  [assertion-result]
-  (dosync
-   (alter *assertions-results*
-          conj assertion-result)))
+  ([assertion-result]
+   (dosync
+    (alter *assertions-results*
+           conj assertion-result)))
+  ([assertion-result file-pos]
+   (->> assertion-result (merge file-pos) add-to-report)))
 
 (defn file-and-line
   "Returns {:file, :line}.
@@ -29,8 +31,8 @@
   `(try
      ~@body
      (catch Exception e#
-       (add-to-report (merge (file-and-line e# 2)
-                             {:status :error
-                              :fn '~f
-                              :raw-args (vec '~args)
-                              :exception e#})))))
+       (add-to-report {:status :error
+                       :fn '~f
+                       :raw-args (vec '~args)
+                       :exception e#}
+                      (file-and-line e# 2)))))

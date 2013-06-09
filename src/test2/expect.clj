@@ -10,15 +10,14 @@
      (let [file-pos# (file-and-line (new java.lang.Throwable) 0)
            args# [~@args]
            result# (apply ~f args#)]
-       (if result#
-         (add-to-report (merge file-pos#
-                               {:status :pass}))
-         (add-to-report (merge file-pos#
-                               {:status :fail
-                                :result result#
-                                :fn '~f
-                                :raw-args (vec '~args)
-                                :args args#}))))))
+       (add-to-report (if result#
+                        {:status :pass}
+                        {:status :fail
+                         :result result#
+                         :fn '~f
+                         :raw-args (vec '~args)
+                         :args args#})
+                      file-pos#))))
 
 (def truthy?
   "Nicer way of saying identity"
